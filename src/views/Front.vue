@@ -21,29 +21,31 @@
   //-           b-nav-item.h5.nar(to='/signup') 花語大全
   //-           b-nav-item.h5.nar(to='/care') 花の呵護
   div.w-100#nav.fixed-top
-    div.backgroundWhite
-      b-btn(v-if="!user.isLogin" variant="danger" @click="signForLine") line速登
-      b-btn(v-if="!user.isLogin" to='/signup') 註冊
-      b-btn(v-if="!user.isLogin" to='/login') 登入
+    div.backgroundWhite.text-right.py-3.pr-3
+      //- b-btn(v-if="!user.isLogin" variant="danger" @click="signForLine") line速登
+      //- b-btn(v-if="!user.isLogin" to='/signup') 註冊
+      b-btn(variant="warning" v-if="!user.isLogin" to='/login') 登入
+        b-icon-person-fill
       b-btn(v-if="user.isLogin" @click="logout") 登出
     div.color
       b-navbar.align-items-center.h-100(toggleable="lg" type="dark")
         b-navbar-toggle(target="nav-collapse")
         b-collapse(id="nav-collapse" is-nav)
           b-navbar-nav.mx-auto
-            b-nav-item.h5.my-0.nar(to='/about') 關於我們
-            b-nav-item.h5.my-0.nar(to='/signup') 商品介紹
-            b-nav-item.img.nar
+            b-nav-item.h5.my-0(to='/about') 關於我們
+            b-nav-item.h5.my-0(to='/signup') 商品介紹
+            b-nav-item.img(to='/')
               span#aaa
-                //- div.box
-            b-nav-item.h5.my-0.nar(to='/signup') 花語大全
-            b-nav-item.h5.my-0.nar(to='/care') 花の呵護
+                div.box
+            b-nav-item.h5.my-0(to='/signup') 花語大全
+            b-nav-item.h5.my-0(to='/care') 花の呵護
   div#content
     router-view
   div#footer.d-flex.align-items-center.justify-content-center.mt-5
     p.mb-0.mx-3 © 2022  Fish Yang
     p.mb-0.mx-3 圖片來源：unsplash.com｜僅學習用途，無商業使用
 </template>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Rowdies:wght@300;400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 html,body {
@@ -51,28 +53,43 @@ html,body {
   font-family: 'Rowdies', cursive;
   font-family: 'Ubuntu', sans-serif;
 }
+#footer{
+  height:50px;
+  background-color:#F7EFD8;
+}
 </style>
 
 <style scope>
 #aaa {
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
-/* .box{
+.box{
   width: 150px;
   height: 150px;
   border-radius: 50%;
   background: white;
   position: absolute;
-  top: -80px;
+  top: -55px;
   left: 50%;
   transform: translateX(-50%);
-} */
+}
+.box::before{
+  content:'';
+  width:130px;
+  height:130px;
+  background:url('~@/assets/image/logo130.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 17px;
+  left: 10px;
+  z-index:9999;
+}
 #content {
-  margin-top: 150px;
+  padding-top: 8%;
 }
 #nav > div {
-  min-height: 70px;
+  min-height: 60px;
 }
 .backgroundWhite{
   background-color:#FCFCFC;

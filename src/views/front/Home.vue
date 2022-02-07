@@ -1,6 +1,6 @@
 <template lang="pug">
 #home.backgroundWhite
-  b-container.mt.px-0(fluid)
+  b-container.px-0(fluid)
     b-carousel#carousel-fade(:interval="1000" style='text-shadow: 0px 0px 5px #000' fade indicators img-width='100vw' img-height='480')
       b-carousel-slide(img-src='~@/assets/image/carousel-1.jpg' style="height: 720px;")
       b-carousel-slide(img-src='~@/assets/image/carousel-2.jpg' style="height: 720px;")
@@ -39,7 +39,7 @@
   background-color:#FCFCFC;
 }
 .wordColor{
-  color:#D95D5E;
+  color:#DC8F99;
 }
 </style>
 
