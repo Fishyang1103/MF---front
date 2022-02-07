@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     /* @media only screen and (max-width: 600px) {
+       body{
+           display: block;
+       }
+   } */
+body{
+    /* background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
+    display: flex;
+}
+
+.card{
+    margin-top: 200px!important;
+    width:400px;
+    margin: auto;
+    height: 400px;
+    position: relative;
+    transition: transform 4s ease-in;
+    overflow: hidden;
+    border:4px solid #fff;
+
+}
+img{
+    width:100%;
+    height: 400px;
+    transition: transform 1s ease-in;
+}
+img:hover{
+    transform: scale(1.2);
+}
+.card:before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:0;
+    content: "Yeah!";
+    transform:translateY(-100%);
+    font-size: 25px;
+    color:#fff;
+   display: block;
+    background-color: rgba(188, 143, 143, 0.137);
+    z-index: 1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+   font-family: sans-serif;
+    transition: transform .4s ease-in;
+    border:4px solid white;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.card:after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:0;
+    content: "Yeah!";
+    transform:translateY(100%);
+    font-size: 25px;
+    color:#fff;
+   display: block;
+    background-color: rgba(188, 143, 143, 0.137);
+    z-index: 1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+   font-family: sans-serif;
+    transition: transform .4s ease-in;
+    border:4px solid white;
+    justify-content: center;
+    box-sizing: border-box;
+}
+ .card:hover::before{
+ transform: translateY(0%); 
+ 
+}
+.card:hover::after{
+    transform: translateY(0%); 
+    
+   }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://images.pexels.com/photos/1248157/pexels-photo-1248157.jpeg?cs=srgb&dl=photo-of-galaxy-1248157.jpg&fm=jpg" alt="">
+  </div>
+  
+  <div class="card">
+    <img src="https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+  </div>
+  
+  <div class="card">
+    <img src="https://images.pexels.com/photos/544268/pexels-photo-544268.jpeg?cs=srgb&dl=amazing-astronomy-background-bright-544268.jpg&fm=jpg" alt="">
+  </div>
+</body>
+</html>
