@@ -23,10 +23,23 @@
   div.w-100#nav.fixed-top
     div.backgroundWhite.text-right.py-3.pr-3
       //- b-btn(v-if="!user.isLogin" variant="danger" @click="signForLine") line速登
-      //- b-btn(v-if="!user.isLogin" to='/signup') 註冊
-      b-btn(variant="warning" v-if="!user.isLogin" to='/login') 登入
+      b-btn(v-if="!user.isLogin" to='/signup') 註冊
+      b-btn(v-b-modal.modal-1 variant="warning" v-if="!user.isLogin") 登入
         b-icon-person-fill
       b-btn(v-if="user.isLogin" @click="logout") 登出
+      b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
+        b-tabs(align='around')
+          b-tab(title='會員登入' active).text-center.my-5
+            img.hover-pointer(src='~@/assets/image/line.png' style="height: 200px;" @click="signForLine")
+            h4 line 快速登入
+          b-tab(title='管理者登入')
+            b-form(@submit.prevent='login')
+              b-form-group(label='帳號' label-for='input-account' description='帳號長度為 5 到 20 個字' :state='state.account' invalid-feedback='帳號格式不正確')
+                b-form-input#input-account(v-model='form.account' required placeholder='請輸入帳號' type='text' :state='state.account')
+              b-form-group(label='密碼' label-for='input-account' description='帳號長度為 4 到 20 個字' :state='state.account' invalid-feedback='帳號格式不正確')
+                b-form-input#input-account(v-model='form.password' required placeholder='請輸入密碼' type='password' :state='state.password')
+              .text-center
+                b-btn.mx-1(variant='success' type='sumbit') 登入
     div.color
       b-navbar.align-items-center.h-100(toggleable="lg" type="dark")
         b-navbar-toggle(target="nav-collapse")
@@ -34,7 +47,7 @@
           b-navbar-nav.mx-auto
             b-nav-item.h5.my-0(to='/about') 關於我們
             b-nav-item.h5.my-0(to='/signup') 商品介紹
-            b-nav-item.img(to='/')
+            b-nav-item.logoimg(to='/')
               span#aaa
                 div.box
             b-nav-item.h5.my-0(to='/signup') 花語大全
@@ -57,6 +70,15 @@ html,body {
   height:50px;
   background-color:#F7EFD8;
 }
+.hover-pointer:hover{
+  cursor: pointer;
+}
+/* 768以下 */
+@media(max-width:768px){
+.logoimg{
+  display: none;
+ }
+}
 </style>
 
 <style scope>
@@ -73,6 +95,7 @@ html,body {
   top: -55px;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
 }
 .box::before{
   content:'';
@@ -85,11 +108,9 @@ html,body {
   left: 10px;
   z-index:9999;
 }
-#content {
-  padding-top: 8%;
-}
+
 #nav > div {
-  min-height: 60px;
+  min-height: 55px;
 }
 .backgroundWhite{
   background-color:#FCFCFC;
@@ -101,21 +122,11 @@ html,body {
   left: 0;
   z-index: -1;
 }
-/* .nar{
-  margin:0 85px;
-} */
 
 .color{
   background:#D95D5E;
 }
 
-/* .img{
-  position: absolute;
-  top:-30px;
-  left:50vw;
-  transform: scale(1.5) translateX(-50%);
-  z-index:99999;
-} */
 .position{
   position: fixed;
   z-index: 999;
@@ -155,16 +166,25 @@ html,body {
 </style> -->
 <script>
 export default {
-  name: 'App',
-  // computed: {
-  //   // 判斷有無登入，如果登入就會把登入的按鈕拿掉，剩下登出鈕
-  //   user () {
-  //     return this.$store.getters['user/user']
-  //   }
-  // },
+  data () {
+    return {
+      form: {
+        account: '',
+        password: ''
+      }
+    }
+  },
   methods: {
+    login () {
+      this.$refs['my-modal'].hide()
+      this.$store.dispatch('user/login', this.form)
+    },
     logout () {
       this.$store.dispatch('user/logout')
+    },
+    hideModal () {
+      this.form.account = ''
+      this.form.password = ''
     },
     random (R) {
       return Math.floor(Math.random() * R)
@@ -187,6 +207,18 @@ export default {
 
       // 回傳的  https://dtns-test-app.herokuapp.com/auth?friendship_status_changed=false&code=JFJstzoT7w62112rXfyy&state=MX44ZkxPWUg%3D
     }
+  },
+  computed: {
+    state () {
+      return {
+        account: this.form.account.length === 0 ? null : this.form.account.length >= 4 && this.form.account.length <= 15,
+        password: this.form.password.length === 0 ? null : this.form.password.length >= 4
+      }
+    }
+  },
+  async created () {
+    this.$store.dispatch('user/getInfo')
+    this.$store.dispatch('user/signInLine')
   }
 }
 </script>

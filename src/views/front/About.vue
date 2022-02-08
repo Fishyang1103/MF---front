@@ -57,4 +57,3 @@
   border:none;
 }
 </style>
-<!-- (img-src='~@/assets/image/logo.jpg' alt='Image' style='height:100%;') -->
