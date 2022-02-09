@@ -1,10 +1,10 @@
 <template lang="pug">
 #home
   b-container.px-0.mt(fluid)
-    b-carousel#carousel-fade(:interval="1000" style='text-shadow: 0px 0px 5px #000' fade indicators img-width='100vw' img-height='480')
-      b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-1-1.jpg' style="height: 720px;")
-      b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-2-1.jpg' style="height: 720px;")
-      b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-3-1.jpg' style="height: 720px;")
+    b-carousel#carousel-fade(:interval="10000" style='text-shadow: 0px 0px 5px #000' fade indicators img-width='100vw' img-height='480')
+      b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-1-1.jpg')
+      b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-2-1.jpg')
+      b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-3-1.jpg')
   h3.text-center.my-5.wordColor 熱銷商品
   div
     b-container.d-flex.justify-content-center
@@ -33,6 +33,7 @@
     .card
       img(src='https://images.pexels.com/photos/544268/pexels-photo-544268.jpeg?cs=srgb&dl=amazing-astronomy-background-bright-544268.jpg&fm=jpg')
 </template>
+
 <style scope>
 .card-img-top{
   height:75vh;

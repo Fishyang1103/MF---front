@@ -1,7 +1,7 @@
 <template lang="pug">
 #top
   div.w-100#nav.fixed-top
-    div.backgroundWhite.text-right.py-3.pr-3
+    div.text-right.py-3.pr-3
       //- b-btn(v-if="!user.isLogin" to='/signup') 註冊
       b-btn(v-b-modal.modal-1 variant="warning" v-if="!user.isLogin") 登入
         b-icon-person-fill
@@ -37,40 +37,6 @@
     p.mb-0.mx-3 © 2022  Fish Yang
     p.mb-0.mx-3 圖片來源：unsplash.com｜僅學習用途，無商業使用
 </template>
-
-<style>
-/*
-/* 768以下
-@media(max-width:768px){
-.logoimg{
-  display: none;
- }
-} */
-</style>
-
-<!-- <style lang="scss">
-@import "~@/assets/scss/vendors/bootstrap-vue/index";
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style> -->
 <script>
 export default {
   data () {

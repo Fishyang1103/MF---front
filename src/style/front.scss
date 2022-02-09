@@ -1,59 +1,64 @@
 #top{
   background: $backColor;
-}
-
-#nav > div {
-  min-height: 55px;
-}
-
-.hover-pointer:hover{
-  cursor: pointer;
-}
-
-.themeColor{
-  background: $themeColor;
-}
-
-#space{
-  margin-right: 100px;
-  margin-left: 100px;
-}
-
-.box{
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: white;
-  position: absolute;
-  top: -55px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
-}
-.box::before{
-  content:'';
-  width:130px;
-  height:130px;
-  background:url('~@/assets/image/logo130.png');
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 17px;
-  left: 10px;
-  z-index:9999;
-}
-
-b-nav-item a {
-  color:white;
-}
-
-#footer{
-  height:50px;
-  background:$themeColor;
-}
-
-.logoimg{
-  display: none;
-  @include md{
-    display: block;
+  #nav {
+    background: $backColor;
+  }
+  #nav > div {
+    min-height: 55px;
+  }
+  #nav-collapse a {
+    color:white;
+  }
+  
+  .hover-pointer:hover{
+    cursor: pointer;
+  }
+  
+  .themeColor{
+    background: $themeColor;
+  }
+  
+  #space{
+    margin-right: 100px;
+    margin-left: 100px;
+  }
+  
+  .box{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+  }
+  .box::before{
+    content:'';
+    width:130px;
+    height:130px;
+    background:url('~@/assets/image/logo130.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 17px;
+    left: 10px;
+    z-index:9999;
+  }
+  
+  b-nav-item a {
+    color:white;
+  }
+  
+  #footer{
+    height:50px;
+    background:$themeColor;
+  }
+  
+  .logoimg{
+    display: none;
+    @include md{
+      display: block;
+    }
   }
 }

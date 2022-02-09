@@ -1,4 +1,9 @@
-.mt{
-  margin-top:150px;
-  // color:$grey;
+#care{
+  background: $backColor;
+  .card-img {
+    height: 50vh;
+    @include md {
+      height: 100%;
+    }
+  }
 }

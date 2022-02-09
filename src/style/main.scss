@@ -7,7 +7,7 @@ body,html {
   font-family: 'Ubuntu', sans-serif;
 }
 
-// 整體背景色
+// 主題色
 $backColor:#FCFCFC;
 $themeColor:#D95D5E;
 // $footerColor:#F7EFD8;
@@ -19,14 +19,20 @@ $breakpoint-lg:992px;
 $breakpoint-xl:1200px;
 $breakpoint-xxl:1400px;
 
+// 除了home其他都會用到
 .contentMt{
-  margin-top: 10%;
+  margin-top: 150px;
+  @include lg {
+    margin-top: 200px;
+  }
 }
 
+// 圖片fit
 .objectFit{
   object-fit: cover;
 }
 
+// 標題顏色
 .wordColor{
   color:#DC8F99;
 }

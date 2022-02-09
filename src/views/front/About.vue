@@ -1,7 +1,7 @@
 <template lang="pug">
-#about.backgroundWhite
-  b-container
-    div.mt
+#about
+  b-container.contentMt
+    div
       //- b-card.mb-5(img-src='~@/assets/image/logo.png' img-alt='Card image' img-left style='border:none;')
       //-   b-card-text.ml-3
       //-     h1.wordColor 關於我們#[br]
