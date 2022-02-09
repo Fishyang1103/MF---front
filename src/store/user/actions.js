@@ -53,30 +53,19 @@ export const logout = async ({ commit, state }) => {
 
 // 取得line的資料
 export const signInLine = async ({ commit, state }) => {
+  console.log(12345)
   const matches = location.href.match(/jwt=([^.\s]+.[^.\s]+.[^.\s]+)/gm)
-  // console.log(matches)
+  console.log(matches)
   if (matches.length > 0) {
-    // console.log(matches[0])
-    // 如果 line 有成功登入，會有 jwt 在網址列，要拿這個 jwt 去換自己的 token
     const jwt = matches[0].substring(4, 176)
-    // console.log(jwt)
     if (jwt) {
-    // this.$store.commit('signIn', jwt)
-    // const query = this.$route.query
-    // delete query.jwt
-    // 把網址列的 jwt 清掉
-    // this.$router.replace({ query: {} })
-    // Line登入換資料 / signInLineData
       await api.get('/users/signInLineData', {
         headers: {
           authorization: 'Bearer ' + jwt
         }
       }).then(res => {
-        // console.log(res)
         commit('login', res.data)
-        // 登入成功後導向會員中心
-        // this.$router.push('/').catch(() => {})
-        // 清網址列的 jwt
+        // router.push('/')
         window.history.pushState('', '', '/line')
       }).catch((error) => {
         console.log(error)
@@ -106,4 +95,18 @@ export const getUserInfo = async (req, res) => {
     })
   }
   console.log('getUserInfo 抓取使用者資料')
+}
+
+export const getInfo = async ({ commit, state }) => {
+  if (state.token.length === 0) return
+  try {
+    const { data } = await api.get('/users/me', {
+      headers: {
+        authorization: 'Bearer ' + state.token
+      }
+    })
+    commit('getInfo', data.result)
+  } catch (error) {
+    commit('logout')
+  }
 }

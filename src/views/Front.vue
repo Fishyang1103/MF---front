@@ -1,32 +1,11 @@
 <template lang="pug">
 #top
-  //- div.fixed-top
-  //-   div.w-100.backgroundWhite(style='height: 54px')
-  //-     b-btn(v-if="!user.isLogin" variant="danger" @click="signForLine") line速登
-  //-     b-btn(v-if="!user.isLogin" to='/signup') 註冊
-  //-     b-btn(v-if="!user.isLogin" to='/login') 登入
-  //-     b-btn(v-if="user.isLogin" @click="logout") 登出
-  //-   b-navbar.top2(toggleable='lg' type='dark')
-  //-     div.w-100.h-50.height.color
-  //-     b-container
-  //-       //- b-navbar-brand(to='/') 購物網
-  //-       b-navbar-toggle(target='nav-collapse')
-  //-       b-collapse#nav-collapse(is-nav)
-  //-         b-navbar-nav.d-flex.justify-content-center.align-items-center.mx-auto
-  //-           b-nav-item.h5.nar(to='/about') 關於我們
-  //-           b-nav-item.h5.nar(to='/signup') 商品介紹
-  //-           b-nav-item.img.nar
-  //-             span
-  //-               img(src='https://picsum.photos/100/100/?image=10')
-  //-           b-nav-item.h5.nar(to='/signup') 花語大全
-  //-           b-nav-item.h5.nar(to='/care') 花の呵護
   div.w-100#nav.fixed-top
     div.backgroundWhite.text-right.py-3.pr-3
-      //- b-btn(v-if="!user.isLogin" variant="danger" @click="signForLine") line速登
-      b-btn(v-if="!user.isLogin" to='/signup') 註冊
+      //- b-btn(v-if="!user.isLogin" to='/signup') 註冊
       b-btn(v-b-modal.modal-1 variant="warning" v-if="!user.isLogin") 登入
         b-icon-person-fill
-      b-btn(v-if="user.isLogin" @click="logout") 登出
+      b-btn(v-if="user.isLogin" @click="logout" variant="primary") 登出
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
           b-tab(title='會員登入' active).text-center.my-5
@@ -40,18 +19,18 @@
                 b-form-input#input-account(v-model='form.password' required placeholder='請輸入密碼' type='password' :state='state.password')
               .text-center
                 b-btn.mx-1(variant='success' type='sumbit') 登入
-    div.color
+    div.themeColor
       b-navbar.align-items-center.h-100(toggleable="lg" type="dark")
         b-navbar-toggle(target="nav-collapse")
         b-collapse(id="nav-collapse" is-nav)
           b-navbar-nav.mx-auto
-            b-nav-item.h5.my-0(to='/about') 關於我們
-            b-nav-item.h5.my-0(to='/signup') 商品介紹
+            b-nav-item.h5.my-0.navWord(to='/about') 關於我們
+            b-nav-item.h5.my-0.navWord(to='/signup') 商品介紹
             b-nav-item.logoimg(to='/')
-              span#aaa
+              span#space
                 div.box
-            b-nav-item.h5.my-0(to='/signup') 花語大全
-            b-nav-item.h5.my-0(to='/care') 花の呵護
+            b-nav-item.h5.my-0.navWord(to='/signup') 花語大全
+            b-nav-item.h5.my-0.navWord(to='/care') 花の呵護
   div#content
     router-view
   div#footer.d-flex.align-items-center.justify-content-center.mt-5
@@ -60,85 +39,13 @@
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Rowdies:wght@300;400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-html,body {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-family: 'Rowdies', cursive;
-  font-family: 'Ubuntu', sans-serif;
-}
-#footer{
-  height:50px;
-  background-color:#F7EFD8;
-}
-.hover-pointer:hover{
-  cursor: pointer;
-}
-/* 768以下 */
+/*
+/* 768以下
 @media(max-width:768px){
 .logoimg{
   display: none;
  }
-}
-</style>
-
-<style scope>
-#aaa {
-  margin-right: 100px;
-  margin-left: 100px;
-}
-.box{
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: white;
-  position: absolute;
-  top: -55px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
-}
-.box::before{
-  content:'';
-  width:130px;
-  height:130px;
-  background:url('~@/assets/image/logo130.png');
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 17px;
-  left: 10px;
-  z-index:9999;
-}
-
-#nav > div {
-  min-height: 55px;
-}
-.backgroundWhite{
-  background-color:#FCFCFC;
-}
-
-.height{
-  position:absolute;
-  top:25%;
-  left: 0;
-  z-index: -1;
-}
-
-.color{
-  background:#D95D5E;
-}
-
-.position{
-  position: fixed;
-  z-index: 999;
-  width: 100vw;
-}
-.top{
-  top: 0;
-  right:0;
-}
-.top2{
-  top: 7%;
-}
+} */
 </style>
 
 <!-- <style lang="scss">
@@ -211,7 +118,7 @@ export default {
   computed: {
     state () {
       return {
-        account: this.form.account.length === 0 ? null : this.form.account.length >= 4 && this.form.account.length <= 15,
+        account: this.form.account.length === 0 ? null : this.form.account.length >= 4,
         password: this.form.password.length === 0 ? null : this.form.password.length >= 4
       }
     }

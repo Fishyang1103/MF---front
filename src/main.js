@@ -11,6 +11,7 @@ import 'sweetalert2/dist/sweetalert2.min.css'
 import mixin from './mixin.js'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
+import './style/all.scss'
 
 Vue.use(VueSweetalert2)
 Vue.mixin(mixin)

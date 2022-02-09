@@ -14,7 +14,7 @@ const routes = [
       {
         path: '',
         name: 'home',
-        component: () => import(/* webpackChunkName: "homte" */ '../views/front/Home.vue'),
+        component: () => import(/* webpackChunkName: "home" */ '../views/front/Home.vue'),
         meta: {
           title: 'MF - FlowerShop'
         }

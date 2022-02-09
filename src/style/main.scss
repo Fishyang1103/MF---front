@@ -1,0 +1,32 @@
+// 全部共用的class
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Rowdies:wght@300;400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body,html {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Rowdies', cursive;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+// 整體背景色
+$backColor:#FCFCFC;
+$themeColor:#D95D5E;
+// $footerColor:#F7EFD8;
+
+// 斷點
+$breakpoint-sm:576px;
+$breakpoint-md:768px;
+$breakpoint-lg:992px;
+$breakpoint-xl:1200px;
+$breakpoint-xxl:1400px;
+
+.contentMt{
+  margin-top: 10%;
+}
+
+.objectFit{
+  object-fit: cover;
+}
+
+.wordColor{
+  color:#DC8F99;
+}

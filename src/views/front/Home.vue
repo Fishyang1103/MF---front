@@ -1,10 +1,10 @@
 <template lang="pug">
-#home.backgroundWhite
-  b-container.px-0(fluid)
+#home
+  b-container.px-0.mt(fluid)
     b-carousel#carousel-fade(:interval="1000" style='text-shadow: 0px 0px 5px #000' fade indicators img-width='100vw' img-height='480')
-      b-carousel-slide(img-src='~@/assets/image/carousel-1.jpg' style="height: 720px;")
-      b-carousel-slide(img-src='~@/assets/image/carousel-2.jpg' style="height: 720px;")
-      b-carousel-slide(img-src='~@/assets/image/carousel-3.jpg' style="height: 720px;")
+      b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-1-1.jpg' style="height: 720px;")
+      b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-2-1.jpg' style="height: 720px;")
+      b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-3-1.jpg' style="height: 720px;")
   h3.text-center.my-5.wordColor 熱銷商品
   div
     b-container.d-flex.justify-content-center
@@ -33,107 +33,15 @@
     .card
       img(src='https://images.pexels.com/photos/544268/pexels-photo-544268.jpeg?cs=srgb&dl=amazing-astronomy-background-bright-544268.jpg&fm=jpg')
 </template>
-
-<style>
-.backgroundWhite{
-  background-color:#FCFCFC;
-}
-.wordColor{
-  color:#DC8F99;
-}
-</style>
-
 <style scope>
-.mt{
-  margin-top: 7%;
-}
-#hover .card{
-    /* margin-top: 200px!important; */
-    width:400px;
-    margin: auto;
-    height: 400px;
-    position: relative;
-    transition: transform 4s ease-in;
-    overflow: hidden;
-    border:4px solid #fff;
-}
-#hover img{
-    width:100%;
-    height: 400px;
-    transition: transform 1s ease-in;
-}
-#hover img:hover{
-    transform: scale(1.2);
-}
-/* #hover .card:before {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left:0;
-    content: "永生花";
-    transform:translateY(-100%);
-    font-size: 25px;
-    color:#fff;
-    display: block;
-    background-color: rgba(188, 143, 143, 0.137);
-    z-index: 1;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
-    transition: transform .4s ease-in;
-    border:4px solid white;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-#hover .card:after {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left:0;
-    content: "f";
-    transform:translateY(100%);
-    font-size: 25px;
-    color:#fff;
-    display: block;
-    background-color: rgba(188, 143, 143, 0.137);
-    z-index: 1;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
-    transition: transform .4s ease-in;
-    border:4px solid white;
-    justify-content: center;
-    box-sizing: border-box;
-} */
-#hover .card:hover::before{
-  transform: translateY(0%);
-
-}
-#hover .card:hover::after{
-  transform: translateY(0%);
-  }
 .card-img-top{
   height:75vh;
-}
-.backgroundWhite{
-  background-color:#FCFCFC;
-}
-.wordColor{
-  color:#D95D5E;
 }
 .rose{
   background: url('~@/assets/image/UNADJUSTEDNONRAW_thumb_9f9.jpg');
 }
-#footer{
-  height:50px;
-  background-color:#F7EFD8;
-}
-#hover.card{
+
+/* #hover.card{
     margin-top: 200px!important;
     width:400px;
     margin: auto;
@@ -175,7 +83,7 @@
     border:4px solid white;
     justify-content: center;
     box-sizing: border-box;
-    /* display:none; */
+    /* display:none;
 }
 
 #hover .card:after {
@@ -199,7 +107,7 @@
     border:4px solid white;
     justify-content: center;
     box-sizing: border-box;
-    /* display:none; */
+     display:none;
 }
 
 #hover .card:hover::before{
@@ -210,7 +118,7 @@
 #hover .card:hover::after{
   transform: translateY(0%);
   display:block;
-  }
+  } */
 
 </style>
 
