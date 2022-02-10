@@ -9,7 +9,7 @@
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
           b-tab(title='會員登入' active).text-center.my-5
-            img.hover-pointer(src='~@/assets/image/line.png' style="height: 200px;" @click="signForLine")
+            img.hoverPointer(src='~@/assets/image/line.png' style="height: 200px;" @click="signForLine")
             h4 line 快速登入
           b-tab(title='管理者登入')
             b-form(@submit.prevent='login')
@@ -29,7 +29,7 @@
             b-nav-item.logoimg(to='/')
               span#space
                 div.box
-            b-nav-item.h5.my-0.navWord(to='/signup') 花語大全
+            b-nav-item.h5.my-0.navWord(to='/language') 花語大全
             b-nav-item.h5.my-0.navWord(to='/care') 花の呵護
   div#content
     router-view

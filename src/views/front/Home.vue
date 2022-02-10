@@ -10,7 +10,7 @@
     b-container.d-flex.justify-content-center
       b-card.mb-2.mx-4(title='鮮花' img-src='~@/assets/image/taisiia-shestopal-JZDyFwGAEqY-unsplash.jpg' img-alt='Image' img-top tag='article' style='width:30%;text-align:center;border:none')
       b-card.mb-2.mx-4(title='鮮花' img-src='~@/assets/image/demi-he-hPcxvCecdPI-unsplash.jpg' img-alt='Image' img-top tag='article' style='width: 30%;text-align:center;border:none')
-      b-card.mb-2.mx-4(title='鮮花' img-src='~@/assets/image/7B8BC910-3A1E-406C-9C93-EBDC1DEBA54C.jpg' img-alt='Image' img-top tag='article' style='max-width: 20rem;text-align:center;border:none')
+      b-card.mb-2.mx-4(title='鮮花' img-src='~@/assets/image/care-31.jpg' img-alt='Image' img-top tag='article' style='max-width: 20rem;text-align:center;border:none')
   h3.text-center.my-5.wordColor 花語大全
   div
     b-container

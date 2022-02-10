@@ -75,28 +75,29 @@ export const signInLine = async ({ commit, state }) => {
   }
 }
 
-export const getUserInfo = async (req, res) => {
-  try {
-    res.status(200).send({
-      success: true,
-      message: '',
-      result: {
-        account: req.user.account,
-        name: req.user.name,
-        role: req.user.role,
-        avatar: req.user.avatar,
-        cart: req.user.cart
-      }
-    })
-  } catch (error) {
-    res.status(500).send({
-      success: false,
-      message: '伺服器錯誤'
-    })
-  }
-  console.log('getUserInfo 抓取使用者資料')
-}
+// export const getUserInfo = async (req, res) => {
+//   try {
+//     res.status(200).send({
+//       success: true,
+//       message: '',
+//       result: {
+//         account: req.user.account,
+//         name: req.user.name,
+//         role: req.user.role,
+//         avatar: req.user.avatar,
+//         cart: req.user.cart
+//       }
+//     })
+//   } catch (error) {
+//     res.status(500).send({
+//       success: false,
+//       message: '伺服器錯誤'
+//     })
+//   }
+//   console.log('getUserInfo 抓取使用者資料')
+// }
 
+// 取使用者資料
 export const getInfo = async ({ commit, state }) => {
   if (state.token.length === 0) return
   try {

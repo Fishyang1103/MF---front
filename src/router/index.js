@@ -35,14 +35,14 @@ const routes = [
       //     title: 'MF - 商品介紹'
       //   }
       // },
-      // {
-      //   path: 'language',
-      //   name: 'Language',
-      //   component: () => import(/* webpackChunkName: "language" */ '../views/Language.vue'),
-      //   meta: {
-      //     title: 'MF - 花語大全'
-      //   }
-      // },
+      {
+        path: 'language',
+        name: 'Language',
+        component: () => import(/* webpackChunkName: "language" */ '../views/front/Language.vue'),
+        meta: {
+          title: 'MF - 花語大全'
+        }
+      },
       {
         path: 'care',
         name: 'Care',

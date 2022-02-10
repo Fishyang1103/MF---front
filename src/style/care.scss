@@ -1,9 +1,22 @@
 #care{
   background: $backColor;
-  .card-img {
-    height: 50vh;
-    @include md {
-      height: 100%;
-    }
+  .card-text:last-child {
+    margin-bottom: 20px;
   }
+  .care-1 {
+    background: url('~@/assets/image/care-1.jpg') no-repeat center/cover;
+    height: 100%;
+    // @include md {
+    //   height: 100%;
+    // }
+  }
+  .care-2 {
+    background: url('~@/assets/image/care-2.jpg') no-repeat center/cover;
+    height: 100%;
+  }
+  .care-3 {
+    background: url('~@/assets/image/care-3.jpg') no-repeat center/cover;
+    height: 100%;
+  }
+  
 }
