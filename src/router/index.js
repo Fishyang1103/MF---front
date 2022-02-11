@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import front from '../views/Front.vue'
-import back from '../views/Back.vue'
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -27,14 +27,14 @@ const routes = [
           title: 'MF - 關於我們'
         }
       },
-      // {
-      //   path: 'products',
-      //   name: 'Products',
-      //   component: () => import(/* webpackChunkName: "products" */ '../views/Products.vue'),
-      //   meta: {
-      //     title: 'MF - 商品介紹'
-      //   }
-      // },
+      {
+        path: 'products',
+        name: 'Products',
+        component: () => import(/* webpackChunkName: "products" */ '../views/front/Products.vue'),
+        meta: {
+          title: 'MF - 商品介紹'
+        }
+      },
       {
         path: 'language',
         name: 'Language',
@@ -72,15 +72,84 @@ const routes = [
   {
     path: '/back',
     name: 'Back',
-    component: back,
-    meta: {
-      title: 'MF - FlowerShop'
-    }
+    component: () => import(/* webpackChunkName: "Back" */ '../views/Back.vue'),
+    children: [
+      {
+        path: 'member',
+        name: 'Member',
+        component: () => import(/* webpackChunkName: "Member" */ '../views/back/Member.vue'),
+        meta: {
+          login: true,
+          title: '會員專區 | MF'
+        },
+        children: [
+          {
+            path: 'memberOrders',
+            name: 'MemberOrders',
+            component: () => import(/* webpackChunkName: "Member" */ '../views/back/MemberOrders.vue'),
+            meta: {
+              login: true,
+              title: '訂單查詢 | MF'
+            }
+          }
+        ]
+      },
+      {
+        path: 'admin',
+        name: 'Admin',
+        component: () => import(/* webpackChunkName: "Admin" */ '../views/back/Admin.vue'),
+        meta: {
+          login: true,
+          admin: true,
+          title: '管理員專區'
+        },
+        children: [
+          {
+            path: 'orders',
+            name: 'AdminOrders',
+            component: () => import(/* webpackChunkName: "admin" */ '../views/back/AdminOrders.vue'),
+            meta: {
+              login: true,
+              admin: true,
+              title: '訂單管理 | MF'
+            }
+          },
+          {
+            path: 'AdminProducts',
+            name: 'AdminProducts',
+            component: () => import(/* webpackChunkName: "admin" */ '../views/back/AdminProducts.vue'),
+            meta: {
+              login: true,
+              admin: true,
+              title: '商品管理 | MF'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    redirect: '/'
   }
 ]
 
 const router = new VueRouter({
   routes
+})
+
+// 路由守衛 router god
+// 沒權限就進不去
+router.beforeEach((to, from, next) => {
+  const user = store.getters['user/user']
+  if (to.meta.login && !user.isLogin) {
+    next('/login')
+  } else if (to.meta.admin && !user.isAdmin) {
+    next('/')
+  } else {
+    next()
+  }
 })
 
 // 進入每頁網站換title

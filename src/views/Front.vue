@@ -6,6 +6,7 @@
       b-btn(v-b-modal.modal-1 variant="warning" v-if="!user.isLogin") 登入
         b-icon-person-fill
       b-btn(v-if="user.isLogin" @click="logout" variant="primary") 登出
+      b-btn(v-if="user.isLogin && user.isAdmin" to='/admin' variant="warning") 後臺管理
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
           b-tab(title='會員登入' active).text-center.my-5
@@ -72,7 +73,6 @@ export default {
       link += '&bot_prompt=normal' // 預設要加官方帳號好友
       link += '&scope=openid%20profile' // 預設申請使用者資料及 token
       window.location.href = link
-      console.log(link)
       // window.open(link, '_self') // 跳轉頁面
 
       // 在 LINE Login 授權 URL ，並讓用戶重新導向
