@@ -12,10 +12,13 @@ import mixin from './mixin.js'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import './style/all.scss'
+import ImgInputer from 'vue-img-inputer'
+import 'vue-img-inputer/dist/index.css'
 
 Vue.use(VueSweetalert2)
 Vue.mixin(mixin)
 Vue.use(VueAwesomeSwiper)
+Vue.component('ImgInputer', ImgInputer)
 
 Vue.config.productionTip = false
 

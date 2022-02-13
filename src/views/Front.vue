@@ -2,11 +2,11 @@
 #top
   div.w-100#nav.fixed-top
     div.text-right.py-3.pr-3
-      //- b-btn(v-if="!user.isLogin" to='/signup') 註冊
+      b-btn(v-if="!user.isLogin" to='/signup') 註冊
       b-btn(v-b-modal.modal-1 variant="warning" v-if="!user.isLogin") 登入
         b-icon-person-fill
+      b-btn.ml-2(v-if="user.isLogin && user.isAdmin" to='/back/admin' variant="warning") 後臺管理
       b-btn(v-if="user.isLogin" @click="logout" variant="primary") 登出
-      b-btn(v-if="user.isLogin && user.isAdmin" to='/admin' variant="warning") 後臺管理
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
           b-tab(title='會員登入' active).text-center.my-5

@@ -20,7 +20,7 @@ const routes = [
         }
       },
       {
-        path: 'about',
+        path: '/about',
         name: 'About',
         component: () => import(/* webpackChunkName: "about" */ '../views/front/About.vue'),
         meta: {
@@ -73,6 +73,9 @@ const routes = [
     path: '/back',
     name: 'Back',
     component: () => import(/* webpackChunkName: "Back" */ '../views/Back.vue'),
+    meta: {
+      title: 'MF - FlowerShop'
+    },
     children: [
       {
         path: 'member',
@@ -84,7 +87,7 @@ const routes = [
         },
         children: [
           {
-            path: 'memberOrders',
+            path: 'memberorders',
             name: 'MemberOrders',
             component: () => import(/* webpackChunkName: "Member" */ '../views/back/MemberOrders.vue'),
             meta: {
@@ -105,7 +108,7 @@ const routes = [
         },
         children: [
           {
-            path: 'orders',
+            path: 'adminorders',
             name: 'AdminOrders',
             component: () => import(/* webpackChunkName: "admin" */ '../views/back/AdminOrders.vue'),
             meta: {
@@ -115,7 +118,7 @@ const routes = [
             }
           },
           {
-            path: 'AdminProducts',
+            path: 'adminproducts',
             name: 'AdminProducts',
             component: () => import(/* webpackChunkName: "admin" */ '../views/back/AdminProducts.vue'),
             meta: {

@@ -51,11 +51,24 @@ export const logout = async ({ commit, state }) => {
   }
 }
 
+export const getInfo = async ({ commit, state }) => {
+  if (state.token.length === 0) return
+  try {
+    const { data } = await api.get('/users/me', {
+      headers: {
+        authorization: 'Bearer ' + state.token
+      }
+    })
+    commit('getInfo', data.result)
+  } catch (error) {
+    commit('logout')
+  }
+}
+
 // 取得line的資料
 export const signInLine = async ({ commit, state }) => {
   console.log(12345)
   const matches = location.href.match(/jwt=([^.\s]+.[^.\s]+.[^.\s]+)/gm)
-  console.log(matches)
   if (matches.length > 0) {
     const jwt = matches[0].substring(4, 176)
     if (jwt) {
@@ -98,16 +111,16 @@ export const signInLine = async ({ commit, state }) => {
 // }
 
 // 取使用者資料
-export const getInfo = async ({ commit, state }) => {
-  if (state.token.length === 0) return
-  try {
-    const { data } = await api.get('/users/me', {
-      headers: {
-        authorization: 'Bearer ' + state.token
-      }
-    })
-    commit('getInfo', data.result)
-  } catch (error) {
-    commit('logout')
-  }
-}
+// export const getInfo = async ({ commit, state }) => {
+//   if (state.token.length === 0) return
+//   try {
+//     const { data } = await api.get('/users/me', {
+//       headers: {
+//         authorization: 'Bearer ' + state.token
+//       }
+//     })
+//     commit('getInfo', data.result)
+//   } catch (error) {
+//     commit('logout')
+//   }
+// }
