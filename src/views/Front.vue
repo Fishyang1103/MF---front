@@ -6,6 +6,9 @@
       b-btn(v-b-modal.modal-1 variant="warning" v-if="!user.isLogin") 登入
         b-icon-person-fill
       b-btn.ml-2(v-if="user.isLogin && user.isAdmin" to='/back/admin' variant="warning") 後臺管理
+      b-btn.ml-2(v-if="user.isLogin && user.isAdmin" to='/back/admin/adminproducts' variant="warning") 後臺管理
+      b-btn.mr-3(v-if="user.isLogin && !user.isAdmin" to='/back/member' variant="warning") 會員專區
+      b-btn.mr-3(v-if="user.isLogin && !user.isAdmin" to='/back/member/membercart' variant="warning") 購物車
       b-btn(v-if="user.isLogin" @click="logout" variant="primary") 登出
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
@@ -26,7 +29,7 @@
         b-collapse(id="nav-collapse" is-nav)
           b-navbar-nav.mx-auto
             b-nav-item.h5.my-0.navWord(to='/about') 關於我們
-            b-nav-item.h5.my-0.navWord(to='/signup') 商品介紹
+            b-nav-item.h5.my-0.navWord(to='/products') 商品介紹
             b-nav-item.logoimg(to='/')
               span#space
                 div.box

@@ -32,6 +32,14 @@ const routes = [
         name: 'Products',
         component: () => import(/* webpackChunkName: "products" */ '../views/front/Products.vue'),
         meta: {
+          title: 'MF - 所有商品'
+        }
+      },
+      {
+        path: 'eachProduct/:id',
+        name: 'Eachproduct',
+        component: () => import(/* webpackChunkName: "eachProduct" */ '../views/front/EachProduct.vue'),
+        meta: {
           title: 'MF - 商品介紹'
         }
       },
@@ -87,6 +95,15 @@ const routes = [
         },
         children: [
           {
+            path: 'membercart',
+            name: 'MemberCart',
+            component: () => import(/* webpackChunkName: "Member" */ '../views/back/MemberCart.vue'),
+            meta: {
+              login: true,
+              title: '購物車 | MF'
+            }
+          },
+          {
             path: 'memberorders',
             name: 'MemberOrders',
             component: () => import(/* webpackChunkName: "Member" */ '../views/back/MemberOrders.vue'),
@@ -131,6 +148,7 @@ const routes = [
       }
     ]
   },
+  // 亂打網址會被丟到首頁
   {
     path: '*',
     name: 'NotFound',

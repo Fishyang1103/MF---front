@@ -16,10 +16,8 @@
     ok-title='送出'
     cancel-variant='danger'
     cancel-title='取消'
-    @ok="submitModal"
-    /* 送出表單後重設值 */
-    @hidden="resetForm"
-    /* 表單正在發送時停用按鈕 */
+    @ok='submitModal'
+    @hidden='resetForm'
     :ok-disabled="modalSubmitting"
     :cancel-disabled="modalSubmitting"
   )
@@ -43,7 +41,7 @@
       :state='state.price'
     )
       b-form-input#input-price(
-        v-model='form.price'
+        v-model.number='form.price'
         type='number'
         min='0'
         required

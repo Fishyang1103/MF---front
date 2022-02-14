@@ -67,7 +67,6 @@ export const getInfo = async ({ commit, state }) => {
 
 // 取得line的資料
 export const signInLine = async ({ commit, state }) => {
-  console.log(12345)
   const matches = location.href.match(/jwt=([^.\s]+.[^.\s]+.[^.\s]+)/gm)
   if (matches.length > 0) {
     const jwt = matches[0].substring(4, 176)
@@ -85,6 +84,46 @@ export const signInLine = async ({ commit, state }) => {
         commit('logout')
       })
     }
+  }
+}
+
+// 加入購物車，要先登入才能加
+export const addCart = async ({ commit, state }, data) => {
+  if (state.token.length === 0) {
+    swal.fire({
+      icon: 'error',
+      title: '錯誤',
+      text: '請先按右上角登入'
+    })
+    router.push('/')
+    return
+  }
+  if (data.quantity <= 0) {
+    swal.fire({
+      icon: 'error',
+      title: '錯誤',
+      text: '請輸入正確數量'
+    })
+    return
+  }
+  try {
+    const { data: resData } = await api.post('/users/me/cart', data, {
+      headers: {
+        authorization: 'Bearer ' + state.token
+      }
+    })
+    commit('updateCart', resData.result)
+    swal.fire({
+      icon: 'success',
+      title: '成功',
+      text: '加入購物車成功'
+    })
+  } catch (error) {
+    swal.fire({
+      icon: 'error',
+      title: '錯誤',
+      text: '加入購物車失敗'
+    })
   }
 }
 

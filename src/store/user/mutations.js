@@ -25,3 +25,8 @@ export const getInfo = (state, data) => {
 export const extend = (state, data) => {
   state.token = data
 }
+
+// 更新購物車數量
+export const updateCart = (state, data) => {
+  state.cart = data
+}
