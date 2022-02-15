@@ -19,6 +19,9 @@ $breakpoint-lg:992px;
 $breakpoint-xl:1200px;
 $breakpoint-xxl:1400px;
 
+#content{
+  min-height: calc(100vh - 201px - 99px);
+}
 // 除了home其他都會用到
 .contentMt{
   margin-top: 150px;

@@ -9,6 +9,7 @@
       b-btn.ml-2(v-if="user.isLogin && user.isAdmin" to='/back/admin/adminproducts' variant="warning") 後臺管理
       b-btn.mr-3(v-if="user.isLogin && !user.isAdmin" to='/back/member' variant="warning") 會員專區
       b-btn.mr-3(v-if="user.isLogin && !user.isAdmin" to='/back/member/membercart' variant="warning") 購物車
+        b-badge.ml-2(variant='light') {{ user.cart.length }}
       b-btn(v-if="user.isLogin" @click="logout" variant="primary") 登出
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
