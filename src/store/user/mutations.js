@@ -29,4 +29,5 @@ export const extend = (state, data) => {
 // 更新購物車數量
 export const updateCart = (state, data) => {
   state.cart = data
+  console.log(state.cart)
 }

@@ -112,6 +112,7 @@ export const addCart = async ({ commit, state }, data) => {
         authorization: 'Bearer ' + state.token
       }
     })
+    console.log(resData.result)
     commit('updateCart', resData.result)
     swal.fire({
       icon: 'success',

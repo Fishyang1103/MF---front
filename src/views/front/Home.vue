@@ -35,9 +35,9 @@
 </template>
 
 <style scope>
-.card-img-top{
+/* .card-img-top{
   height:75vh;
-}
+} */
 .rose{
   background: url('~@/assets/image/UNADJUSTEDNONRAW_thumb_9f9.jpg');
 }
