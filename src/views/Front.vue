@@ -3,44 +3,48 @@
   div.w-100#nav.fixed-top
     div.text-right.py-3.pr-3
       //- b-btn(v-if="!user.isLogin" to='/signup') 註冊
-      b-btn(v-b-modal.modal-1 variant="warning" v-if="!user.isLogin") 登入
-        b-icon-person-fill
-      //- b-btn.ml-2(v-if="user.isLogin && user.isAdmin" to='/back/admin' variant="warning") 後臺管理
+      b-btn(v-b-modal.modal-1 variant="light" v-if="!user.isLogin")
+        b-icon-person-fill.iconColor
       b-btn.ml-2(v-if="user.isLogin && user.isAdmin" to='/back/admin/adminproducts' variant="warning") 後臺管理
       b-btn.mr-3(v-if="user.isLogin && !user.isAdmin" to='/back/member/memberorders' variant="warning") 訂單查詢
-      b-btn.mr-3(v-if="user.isLogin && !user.isAdmin" to='/back/member/membercart' variant="warning") 購物車
+      b-btn.mr-3(v-if="user.isLogin && !user.isAdmin" to='/back/member/membercart' variant="light")
+        font-awesome-icon.iconColor(:icon="['fas', 'fa-cart-plus']")
         b-badge(variant='danger') {{ user.cart }}
-      b-btn(v-if="user.isLogin" @click="logout" variant="primary") 登出
+      b-btn(v-if="user.isLogin" @click="logout" variant="light")
+        font-awesome-icon.iconColor(:icon="['fas', 'fa-right-from-bracket']")
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
           b-tab(title='會員登入' active).text-center.my-5
-            img.hoverPointer(src='~@/assets/image/line.png' style="height: 200px;" @click="signForLine")
-            h4 line 快速登入
+            img.a(src='~@/assets/image/line.png' style="height: 200px;cursor:pointer;" @click="signForLine"
+            )
+            h4 Line 快速登入
           b-tab(title='管理者登入')
             b-form(@submit.prevent='login')
-              b-form-group(label='帳號' label-for='input-account' description='帳號長度為 5 到 20 個字' :state='state.account' invalid-feedback='帳號格式不正確')
+              b-form-group(label='帳號' label-for='input-account' description='帳號長度為 4 到 20 個字' :state='state.account' invalid-feedback='帳號格式不正確')
                 b-form-input#input-account(v-model='form.account' required placeholder='請輸入帳號' type='text' :state='state.account')
               b-form-group(label='密碼' label-for='input-account' description='帳號長度為 4 到 20 個字' :state='state.account' invalid-feedback='帳號格式不正確')
                 b-form-input#input-account(v-model='form.password' required placeholder='請輸入密碼' type='password' :state='state.password')
               .text-center
-                b-btn.mx-1(variant='success' type='sumbit') 登入
+                b-btn.mx-1(variant='warning' type='sumbit') 登入
     div.themeColor
       b-navbar.align-items-center.h-100(toggleable="lg" type="dark")
         b-navbar-toggle(target="nav-collapse")
         b-collapse(id="nav-collapse" is-nav)
           b-navbar-nav.mx-auto
-            b-nav-item.h5.my-0.navWord(to='/about') 關於我們
-            b-nav-item.h5.my-0.navWord(to='/products') 商品介紹
+            b-nav-item.h4.my-0.navWord(to='/about') 關於我們
+            b-nav-item.h4.my-0.navWord(to='/products') 商品介紹
             b-nav-item.logoimg(to='/')
               span#space
                 div.box
-            b-nav-item.h5.my-0.navWord(to='/language') 花語大全
-            b-nav-item.h5.my-0.navWord(to='/care') 花の呵護
+            b-nav-item.h4.my-0.navWord(to='/language') 花語大全
+            b-nav-item.h4.my-0.navWord(to='/care') 花の呵護
   div#content
     router-view
-  div#footer.d-flex.align-items-center.justify-content-center.mt-5
-    p.mb-0.mx-3 © 2022  Fish Yang
-    p.mb-0.mx-3 圖片來源：unsplash.com｜僅學習用途，無商業使用
+  div#footer.mt-5
+    b-col.text-center(md='12').
+      © 2022  Fish Yang
+    b-col.text-center(md='12').
+      圖片來源：unsplash & Google圖片｜僅學習用途，無商業使用
 </template>
 <script>
 export default {

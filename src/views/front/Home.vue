@@ -1,30 +1,36 @@
 <template lang="pug">
 #home
   b-container.px-0.mt(fluid)
-    b-carousel#carousel-fade(:interval="10000" style='text-shadow: 0px 0px 5px #000' fade indicators img-width='100vw' img-height='480')
+    b-carousel#carousel-fade(:interval="3000" style='text-shadow: 0px 0px 5px #000' fade indicators img-width='100vw' img-height='480')
       b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-1-1.jpg')
       b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-2-1.jpg')
       b-carousel-slide.objectFit(img-src='~@/assets/image/carousel-3-1.jpg')
-  h3.text-center.my-5.wordColor 熱銷商品
-  div
-    b-container.d-flex.justify-content-center
-      b-card.mb-2.mx-4(title='鮮花' img-src='~@/assets/image/taisiia-shestopal-JZDyFwGAEqY-unsplash.jpg' img-alt='Image' img-top tag='article' style='width:30%;text-align:center;border:none')
-      b-card.mb-2.mx-4(title='鮮花' img-src='~@/assets/image/demi-he-hPcxvCecdPI-unsplash.jpg' img-alt='Image' img-top tag='article' style='width: 30%;text-align:center;border:none')
-      b-card.mb-2.mx-4(title='鮮花' img-src='~@/assets/image/care-31.jpg' img-alt='Image' img-top tag='article' style='max-width: 20rem;text-align:center;border:none')
-  h3.text-center.my-5.wordColor 花語大全
-  div
-    b-container
-      .example-3d
-        swiper.swiper(:options='swiperOption')
-          swiper-slide.rose
-          swiper-slide.rose
-          swiper-slide.rose
-          swiper-slide.rose
-          swiper-slide.rose
-          swiper-slide.rose
-          swiper-slide.rose
-          .swiper-pagination(slot='pagination')
-  h3.text-center.my-5.wordColor 花の呵護
+  h2.text-center.my-5.wordColor 熱銷商品
+  b-container
+    b-row.d-flex.justify-content-center
+      b-col.d-flex.align-items-center.justify-content-center(sm='12',md='4')
+        b-card.mb-2.text-center(title='經典紅玫瑰' img-src='~@/assets/image/hotproduct-1.jpg' img-alt='Image' img-top tag='article' style='max-width: 20rem;')
+          b-card-text
+            h5 $2880
+      b-col.d-flex.align-items-center.justify-content-center(sm='12',md='4')
+        b-card.mb-2.text-center(title='太陽之花' img-src='~@/assets/image/hotproduct-2.jpg' img-alt='Image' img-top tag='article' style='max-width: 20rem;')
+          b-card-text
+            h5 $3280
+      b-col.d-flex.align-items-center.justify-content-center(sm='12',md='4')
+        b-card.mb-2.text-center(title='純潔的友誼' img-src='~@/assets/image/hotproduct-3.jpg' img-alt='Image' img-top tag='article' style='max-width: 20rem;')
+          b-card-text
+            h5 $2680
+  h2.text-center.my-5.wordColor 花語大全
+  b-container.example-3d
+    swiper.swiper(:options='swiperOption')
+      swiper-slide.lang-1
+      swiper-slide.lang-2
+      swiper-slide.lang-3
+      swiper-slide.lang-4
+      swiper-slide.lang-5
+      swiper-slide.lang-6
+      .swiper-pagination(slot='pagination')
+  h2.text-center.my-5.wordColor 花の呵護
   div#hover.d-flex
     .card
       img(src='https://images.pexels.com/photos/1248157/pexels-photo-1248157.jpeg?cs=srgb&dl=photo-of-galaxy-1248157.jpg&fm=jpg')
@@ -38,9 +44,6 @@
 /* .card-img-top{
   height:75vh;
 } */
-.rose{
-  background: url('~@/assets/image/UNADJUSTEDNONRAW_thumb_9f9.jpg');
-}
 
 /* #hover.card{
     margin-top: 200px!important;

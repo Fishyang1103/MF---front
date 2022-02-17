@@ -9,11 +9,9 @@
   #nav-collapse a {
     color:white;
   }
-  
-  .hoverPointer:hover {
-    cursor: pointer;
+  img:hover{
+    background-color: black;
   }
-
   .themeColor{
     background: $themeColor;
   }
@@ -57,7 +55,7 @@
   
   .logoimg{
     display: none;
-    @include md{
+    @include lg{
       display: block;
     }
   }

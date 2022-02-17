@@ -14,7 +14,13 @@ import 'swiper/css/swiper.css'
 import './style/all.scss'
 import ImgInputer from 'vue-img-inputer'
 import 'vue-img-inputer/dist/index.css'
+// fontawesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faRightFromBracket, faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+library.add(faRightFromBracket, faCartPlus)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueSweetalert2)
 Vue.mixin(mixin)
 Vue.use(VueAwesomeSwiper)
