@@ -1,0 +1,13 @@
+#products{
+  background: $backColor;
+  .nav-link.active{
+    background-color: $themeColor;
+  }
+  .nav-item{
+    margin-right: 100px;
+  }
+  img{
+    height: 280px;
+    object-fit: cover;
+  }
+}

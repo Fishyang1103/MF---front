@@ -21,7 +21,7 @@
           b-card-text
             h5 $2680
   h2.text-center.my-5.wordColor 花語大全
-  b-container.example-3d
+  div.example-3d
     swiper.swiper(:options='swiperOption')
       swiper-slide.lang-1
       swiper-slide.lang-2
@@ -31,13 +31,20 @@
       swiper-slide.lang-6
       .swiper-pagination(slot='pagination')
   h2.text-center.my-5.wordColor 花の呵護
-  div#hover.d-flex
-    .card
-      img(src='https://images.pexels.com/photos/1248157/pexels-photo-1248157.jpeg?cs=srgb&dl=photo-of-galaxy-1248157.jpg&fm=jpg')
-    .card
-      img(src='https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-    .card
-      img(src='https://images.pexels.com/photos/544268/pexels-photo-544268.jpeg?cs=srgb&dl=amazing-astronomy-background-bright-544268.jpg&fm=jpg')
+  b-container#hover.my-5
+    b-row.d-flex.justify-content-center
+      b-col.care-1(sm='12',md='4')
+        img.objectFit(src='~@/assets/image/carehome-1.jpg')
+      b-col.care-2.px-2(sm='12',md='4')
+        img.objectFit(src='~@/assets/image/carehome-2.jpg')
+      b-col.care-3(sm='12',md='4')
+        img.objectFit(src='~@/assets/image/carehome-3.jpg')
+    //- .card
+    //-   img(src='https://images.pexels.com/photos/1248157/pexels-photo-1248157.jpeg?cs=srgb&dl=photo-of-galaxy-1248157.jpg&fm=jpg')
+    //- .card
+    //-   img(src='https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+    //- .card
+    //-   img(src='https://images.pexels.com/photos/544268/pexels-photo-544268.jpeg?cs=srgb&dl=amazing-astronomy-background-bright-544268.jpg&fm=jpg')
 </template>
 
 <style scope>
@@ -142,9 +149,13 @@ export default {
       swiperOption: {
         effect: 'coverflow',
         grabCursor: true,
+        loop: true,
         centeredSlides: true,
         spaceBetween: 15,
         slidesPerView: 'auto',
+        autoplay: {
+          delay: 3000
+        },
         coverflowEffect: {
           rotate: 50,
           stretch: 0,

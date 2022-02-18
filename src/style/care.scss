@@ -4,19 +4,29 @@
     margin-bottom: 20px;
   }
   .care-1 {
-    background: url('~@/assets/image/care-1.jpg') no-repeat center/cover;
+    background: url('~@/assets/image/care-1-1.jpg') no-repeat center/cover;
     height: 100%;
-    // @include md {
-    //   height: 100%;
-    // }
   }
   .care-2 {
     background: url('~@/assets/image/care-2.jpg') no-repeat center/cover;
     height: 100%;
+    background-position-y: inherit;
   }
   .care-3 {
-    background: url('~@/assets/image/care-3.jpg') no-repeat center/cover;
+    background: url('~@/assets/image/care-3-1.jpg') no-repeat center/cover;
+    height: 100%;
+    background-position-y: unset;
+  }
+  .care-4{
+    background: url('~@/assets/image/care-4.jpg') no-repeat center/cover;
     height: 100%;
   }
-  
+  li{
+    line-height: 2;
+  }
+  img{
+    @include sm {
+      height: 300px;
+      }
+  }
 }
