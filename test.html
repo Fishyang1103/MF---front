@@ -104,3 +104,12 @@ img:hover{
   </div>
 </body>
 </html>
+//- b-col(cols='6')
+        //-   h1 {{ name }}
+        //- b-col(cols='6')
+        //-   h4.text-right ${{ price }}
+        //-   b-form-input(type='number' v-model.number='quantity' :state='quantityState' min='0')
+        //-   b-btn(variant='primary' @click='addCart') 加入購物車
+        //- b-col(cols='12')
+        //-   img.w-100(:src='image')
+        //-   p(style='white-space: pre') {{ description }}

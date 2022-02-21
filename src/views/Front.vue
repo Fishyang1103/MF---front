@@ -12,6 +12,7 @@
         b-badge(variant='danger') {{ user.cart }}
       b-btn(v-if="user.isLogin" @click="logout" variant="light")
         font-awesome-icon.iconColor(:icon="['fas', 'fa-right-from-bracket']")
+      b-avatar(variant="info") {{ user.avatar }}
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
           b-tab(title='會員登入' active).text-center.my-5
@@ -44,7 +45,7 @@
     b-col.text-center(md='12').
       © 2022  Fish Yang
     b-col.text-center(md='12').
-      圖片來源：unsplash & Google圖片｜僅學習用途，無商業使用
+      圖片來源：取自網路｜僅學習用途，無商業使用
 </template>
 <script>
 export default {

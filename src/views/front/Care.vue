@@ -2,7 +2,7 @@
 #care
   b-container.contentMt
     div
-      b-card.overflow-hidden(no-body style='max-width: 1100px;')
+      b-card.overflow-hidden(no-body style='max-width: 1100px;border:none;')
         b-row(no-gutters style="height: 350px;")
           b-col(sm='12',md='4')
             b-card-img.objectFit.rounded-0.care-1
@@ -17,7 +17,7 @@
                 li 換水時請將花莖斜剪 0.3 - 0.5公分，使有新的切口吸水，能有效延長觀賞期。
                 li 若開始出現枯黃的花瓣、葉子，請將枯萎處摘除。枯萎的花葉會讓其他健康的花葉加速枯萎。
                 li 請將花與水果保持距離，因水果成熟的過程中會釋放乙烯，會造成植物成熟與老化。
-      b-card.overflow-hidden.mt-5(no-body style='max-width: 1100px;')
+      b-card.overflow-hidden.mt-5(no-body style='max-width: 1100px;border:none;')
         b-row.flex-row-reverse(no-gutters style="height: 400px;")
           b-col(md='4')
               b-card-img.objectFit.rounded-0.care-2
@@ -34,7 +34,7 @@
                       li 冬季：澆水切記寧少不要多，5~8天澆一次，每次約70~100cc即可。
                   li 蘭花盆栽擺放位置光線充足，早上或黃昏陽光透過窗戶斜射最佳，忌諱直射。
                   li 需要空氣流通，窗戶旁最佳，切記擺放門窗緊閉空間。
-      b-card.overflow-hidden.mt-5(no-body style='max-width: 1100px;')
+      b-card.overflow-hidden.mt-5(no-body style='max-width: 1100px;border:none;')
         b-row(no-gutters style="height: 350px;")
           b-col(md='4')
               b-card-img.objectFit.rounded-0.care-3
@@ -47,7 +47,7 @@
                   li 請勿將花瓣碰水，會造成花瓣水傷。
                   li 若無澆水壺，可先使用吸管取水，再將水放入其中。
                   li 請遠離水果，水果成熟時釋放的乙烯會加速花的枯萎。
-      b-card.overflow-hidden.mt-5(no-body style='max-width: 1100px;')
+      b-card.overflow-hidden.mt-5(no-body style='max-width: 1100px;border:none;')
         b-row.flex-row-reverse(no-gutters style="height: 350px;")
           b-col(md='4')
               b-card-img.objectFit.rounded-0.care-4

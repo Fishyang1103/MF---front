@@ -6,14 +6,14 @@
         h1 花材缺貨中
       b-row
         b-col(cols='6')
-          h1 {{ name }}
-        b-col(cols='6')
-          h4.text-right ${{ price }}
-          b-form-input(type='number' v-model.number='quantity' :state='quantityState' min='0')
-          b-btn(variant='primary' @click='addCart') 加入購物車
-        b-col(cols='12')
           img.w-100(:src='image')
-          p(style='white-space: pre') {{ description }}
+        b-col(cols='6')
+          h1.wordColor.my-5 {{ name }}
+          h5.my-5(style='white-space: pre') {{ description }}
+          h5.my-5 建議售價
+          h4.text-right ${{ price }}
+          b-form-input.my-5(type='number' v-model.number='quantity' :state='quantityState' min='0')
+          b-btn(block @click='addCart' style='background-color:#E9D4A7;color:black;') 加入購物車
 </template>
 
 <script>

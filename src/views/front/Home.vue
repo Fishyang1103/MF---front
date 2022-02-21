@@ -38,7 +38,7 @@
       b-col.care-2.px-2(sm='12',md='4')
         img.objectFit(src='~@/assets/image/carehome-2.jpg')
       b-col.care-3(sm='12',md='4')
-        img.objectFit(src='~@/assets/image/carehome-3.jpg')
+        img(src='~@/assets/image/carehome-3.jpg')
     //- .card
     //-   img(src='https://images.pexels.com/photos/1248157/pexels-photo-1248157.jpeg?cs=srgb&dl=photo-of-galaxy-1248157.jpg&fm=jpg')
     //- .card

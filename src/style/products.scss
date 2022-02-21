@@ -2,6 +2,10 @@
   background: $backColor;
   .nav-link.active{
     background-color: $themeColor;
+    color:white;
+  }
+  .nav-link{
+    color:$themeColor ;
   }
   .nav-item{
     margin-right: 100px;
