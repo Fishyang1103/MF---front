@@ -15,12 +15,10 @@
   .themeColor{
     background: $themeColor;
   }
-  
   #space{
     margin-right: 100px;
     margin-left: 100px;
   }
-  
   .box{
     width: 150px;
     height: 150px;
@@ -43,16 +41,13 @@
     left: 10px;
     z-index:9999;
   }
-  
   b-nav-item a {
     color:white;
   }
-  
   #footer{
     height:50px;
     background:$themeColor;
   }
-  
   .logoimg{
     display: none;
     @include lg{

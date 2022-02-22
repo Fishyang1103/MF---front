@@ -12,7 +12,7 @@
         b-badge(variant='danger') {{ user.cart }}
       b-btn(v-if="user.isLogin" @click="logout" variant="light")
         font-awesome-icon.iconColor(:icon="['fas', 'fa-right-from-bracket']")
-      b-avatar(variant="info") {{ user.avatar }}
+      //- b-avatar(variant="info" v-if="user.isLogin")
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
           b-tab(title='會員登入' active).text-center.my-5
@@ -33,15 +33,15 @@
         b-collapse(id="nav-collapse" is-nav)
           b-navbar-nav.mx-auto
             b-nav-item.h4.my-0.navWord(to='/about') 關於我們
-            b-nav-item.h4.my-0.navWord(to='/products') 商品介紹
+            b-nav-item.h4.my-0.navWord(to='/products' style="margin-left: 18px;") 商品介紹
             b-nav-item.logoimg(to='/')
               span#space
                 div.box
-            b-nav-item.h4.my-0.navWord(to='/language') 花語大全
+            b-nav-item.h4.my-0.navWord(to='/language' style="margin-right: 18px;") 花語大全
             b-nav-item.h4.my-0.navWord(to='/care') 花の呵護
   div#content
     router-view
-  div#footer.mt-5
+  div#footer.mt-5(style="height:52px;")
     b-col.text-center(md='12').
       © 2022  Fish Yang
     b-col.text-center(md='12').

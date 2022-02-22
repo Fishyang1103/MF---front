@@ -13,7 +13,7 @@
           h5.my-5 建議售價
           h4.text-right ${{ price }}
           b-form-input.my-5(type='number' v-model.number='quantity' :state='quantityState' min='0')
-          b-btn(block @click='addCart' style='background-color:#E9D4A7;color:black;') 加入購物車
+          b-btn(block @click='addCart' style='background-color:#E9D4A7;border: none;color:black;') 加入購物車
 </template>
 
 <script>
