@@ -1,6 +1,7 @@
 <template lang="pug">
 #language
   b-container.contentMt
+    h1.text-center.wordColor.mb-3 花語大全
     b-row
       b-col(cols='12').pt-5
         div

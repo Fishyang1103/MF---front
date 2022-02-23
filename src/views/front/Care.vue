@@ -1,6 +1,7 @@
 <template lang="pug">
 #care
   b-container.contentMt
+    h1.text-center.wordColor.mb-5 花の呵護
     div
       b-card.overflow-hidden(no-body style='max-width: 1100px;border:none;')
         b-row(no-gutters style="height: 350px;")

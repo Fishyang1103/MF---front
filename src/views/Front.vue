@@ -12,7 +12,7 @@
         b-badge(variant='danger') {{ user.cart }}
       b-btn(v-if="user.isLogin" @click="logout" variant="light")
         font-awesome-icon.iconColor(:icon="['fas', 'fa-right-from-bracket']")
-      //- b-avatar(variant="info" v-if="user.isLogin")
+      b-avatar(variant="info" v-if="user.isLogin" :src="user.avatar")
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
           b-tab(title='會員登入' active).text-center.my-5

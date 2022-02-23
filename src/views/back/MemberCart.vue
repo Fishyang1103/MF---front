@@ -12,7 +12,41 @@
         b-form-spinbutton(v-model='data.item.quantity' min="1" inline @input='updateCart(data.index, data.item.quantity)')
         | &emsp;&emsp;
         b-btn(variant='light' @click='updateCart(data.index, 0)') 🗑️
-    p.text-right 總金額 {{ total }}
+    p.text-center 總金額 {{ total }}
+    div.mt-5
+      h4 聯絡資訊
+      b-form(style="background-color: aqua;")
+        b-row
+          b-col(cols='6')
+            b-form-group#input-group-1(label='訂購人姓名:' label-for='input-1')
+              b-form-input#input-1(v-model='form.name' style="background: red;" placeholder='姓名' required)
+          b-col(cols='6')
+            b-form-group#input-group-2(label='連絡電話:' label-for='input-2')
+              b-form-input#input-2(v-model='form.phone' placeholder='電話號碼' required)
+          b-col(cols='12')
+            b-form-group#input-group-3(label='欲送達地址:' label-for='input-3')
+              b-form-input#input-3(v-model='form.address' placeholder='自取不用填寫')
+        b-row
+          b-col(cols='6')
+            b-form-group#input-group-4(label='選擇運送方式:' label-for='input-4')
+              b-form-select#input-4(v-model='form.courier' :options="couriers" style="background: red;"  required)
+          b-col(cols='6')
+            b-form-group#input-group-5(label='選擇付款方式:' label-for='input-5')
+              b-form-select#input-5(v-model='form.payment' :options="couriers" style="background: red;"  required)
+      //- b-form-input(v-model='text' placeholder='Enter your name')
+      //- b-form(@submit='onSubmit' @reset='onReset')
+      //-   b-form-group#input-group-1(label='Email address:' label-for='input-1' description='Well never share your email with anyone else.')
+      //- b-form-input#input-1(v-model='form.phone' type='email' placeholder='Enter email' required)
+  //-     b-form-group#input-group-2(label='Your Name:' label-for='input-2')
+  //-       b-form-input#input-2(v-model='form.name' placeholder='Enter name' required)
+  //-     b-form-group#input-group-3(label='Food:' label-for='input-3')
+  //-       b-form-select#input-3(v-model='form.remark' :options='foods' required)
+  //-     b-form-group#input-group-4(v-slot='{ ariaDescribedby }')
+  //-       b-form-checkbox-group#checkboxes-4(v-model='form.checked')
+  //-         b-form-checkbox(value='me') Check me out
+  //-         b-form-checkbox(value='that') Check that out
+  //-     b-button(type='submit' variant='primary') Submit
+  //-     b-button(type='reset' variant='danger') Reset
     b-btn.w-25(variant='success' block @click='checkout' :disabled='products.length === 0') 結帳
 </template>
 
@@ -26,7 +60,23 @@ export default {
         { key: 'name', label: '名稱' },
         { key: 'price', label: '價格' },
         { key: 'action', label: '操作' }
-      ]
+      ],
+      couriers: [
+        { text: '運送方式', value: '' },
+        '宅配', '自取'
+      ],
+      payments: [
+        { text: '付款方式', value: '' },
+        '貨到付款', 'ATM轉帳'
+      ],
+      form: {
+        name: '',
+        phone: '',
+        address: '',
+        courier: '',
+        payment: '',
+        remark: ''
+      }
     }
   },
   methods: {
@@ -56,12 +106,13 @@ export default {
     },
     async checkout () {
       try {
-        await this.api.post('/orders', {}, {
+        await this.api.post('/orders', this.form, {
           headers: {
             authorization: 'Bearer ' + this.user.token
           }
         })
         this.$router.push('/orders')
+        // this.$router.push('/back/member/memberinfo')
         // 結帳完購物車數量歸零
         this.$store.commit('user/updateCart', 0)
       } catch (error) {

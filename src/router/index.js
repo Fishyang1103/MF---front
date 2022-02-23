@@ -104,6 +104,15 @@ const routes = [
             }
           },
           {
+            path: 'memberinfo',
+            name: 'MemberInfo',
+            component: () => import(/* webpackChunkName: "Member" */ '../views/back/MemberInfo.vue'),
+            meta: {
+              login: true,
+              title: '寄送資料 | MF'
+            }
+          },
+          {
             path: 'memberorders',
             name: 'MemberOrders',
             component: () => import(/* webpackChunkName: "Member" */ '../views/back/MemberOrders.vue'),

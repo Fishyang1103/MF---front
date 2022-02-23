@@ -6,7 +6,7 @@ export const login = (state, data) => {
   state.token = data.token
   state.account = data.account
   state.role = data.role
-  state.cart = data.cart
+  state.cart = data.cart.length
 }
 
 export const logout = (state, data) => {
@@ -19,7 +19,7 @@ export const logout = (state, data) => {
 export const getInfo = (state, data) => {
   state.account = data.account
   state.role = data.role
-  state.cart = data.cart
+  state.cart = data.cart.length
 }
 
 export const extend = (state, data) => {

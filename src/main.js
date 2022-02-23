@@ -16,10 +16,10 @@ import ImgInputer from 'vue-img-inputer'
 import 'vue-img-inputer/dist/index.css'
 // fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faRightFromBracket, faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { faRightFromBracket, faCartPlus, faCircleUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faRightFromBracket, faCartPlus)
+library.add(faRightFromBracket, faCartPlus, faCircleUp)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueSweetalert2)
 Vue.mixin(mixin)
