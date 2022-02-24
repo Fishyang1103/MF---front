@@ -11,6 +11,10 @@
       | {{ data.item.userInfo.address}}
     template(#cell(courier)='data')
       | {{ data.item.userInfo.courier}}
+    template(#cell(deliveryDate)='data')
+      | {{ data.item.userInfo.deliveryDate}}
+    template(#cell(deliveryTime)='data')
+      | {{ data.item.userInfo.deliveryTime}}
     template(#cell(date)='data')
       | {{ new Date(data.item.date).toLocaleString('zh-tw') }}
     template(#cell(products)='data')
@@ -26,11 +30,13 @@ export default {
       fields: [
         { key: '_id', label: '單號' },
         { key: 'name', label: '姓名' },
-        { key: 'phone', label: '連絡電話' },
-        { key: 'address', label: '送達地址' },
-        { key: 'courier', label: '運送方式' },
+        { key: 'phone', label: '電話' },
+        { key: 'address', label: '地址' },
+        { key: 'courier', label: '運送' },
+        { key: 'deliveryDate', label: '日期' },
+        { key: 'deliveryTime', label: '時間' },
         // { key: 'user', label: '使用者' },
-        { key: 'date', label: '訂購日期' },
+        { key: 'date', label: '訂購日' },
         { key: 'products', label: '商品' },
         { key: 'remark', label: '備註' }
       ]
@@ -59,6 +65,6 @@ export default {
 </template>
 <style scope>
 .content{
-  margin-left:25%;
+  margin-left:20%;
 }
 </style>

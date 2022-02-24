@@ -42,14 +42,17 @@
               b-form-valid-feedback(:state='state') ok
           b-col.mt-3(cols='6')
             h3 付款方式：ATM
-          b-col(cols='6')
-            label(for='example-datepicker') Choose a date
-            b-form-datepicker#example-datepicker.mb-2(selected-variant='warning'  v-model='form.deliveryDate')
+          b-col.mt-3(cols='6')
+            label(for='example-datepicker') 請選擇日期
+            b-form-datepicker#example-datepicker.mb-2(:dark='true' :state="true" selected-variant='warning' reset-button  v-model='form.deliveryDate')
+          b-col.mt-3(cols='6')
+            label(for= 'timepicker-placeholder') 請選擇時間
+            b-time#time(v-model="form.deliveryTime" placeholder="Choose a time" locale="en")
           b-col(cols='12')
             b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='留言給店家' rows='3' max-rows='6')
         b-row.d-flex.justify-content-end.pr-3
           b-btn.mt-3(type='reset' variant='danger') 打錯重來
-          b-btn.mt-3.ml-3(variant='success' @click='checkout' :disabled='products.length === 0') 結帳
+          b-btn.mt-3.ml-3(variant='primary' @click='checkout' :disabled='products.length === 0') 結帳
 
         //-     b-form-group#input-group-1(label='訂購人姓名:' label-for='input-1')
         //-       b-form-input#input-1(v-model='form.name' placeholder='姓名' required)
@@ -134,6 +137,11 @@ export default {
         // this.$router.push('/back/member/memberinfo')
         // 結帳完購物車數量歸零
         this.$store.commit('user/updateCart', 0)
+        this.$swal({
+          icon: 'success',
+          title: '成功',
+          text: '送出訂單，專人將於上班日一天內與您聯絡'
+        })
       } catch (error) {
         console.log(error)
         this.$swal({
