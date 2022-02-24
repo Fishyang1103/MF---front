@@ -6,12 +6,12 @@
       b-btn(v-b-modal.modal-1 variant="light" v-if="!user.isLogin")
         b-icon-person-fill.iconColor
       b-btn.ml-2(v-if="user.isLogin && user.isAdmin" to='/back/admin/adminproducts' variant="warning") 後臺管理
-      b-btn.mr-3(v-if="user.isLogin && !user.isAdmin" to='/back/member/memberorders' variant="warning") 訂單查詢
-      b-btn.mr-3(v-if="user.isLogin && !user.isAdmin" to='/back/member/membercart' variant="light")
+      b-btn.mr-4(v-if="user.isLogin && !user.isAdmin" to='/back/member/memberorders' variant="warning") 訂單查詢
+      b-btn(v-if="user.isLogin && !user.isAdmin" to='/back/member/membercart' variant="light")
         font-awesome-icon.iconColor(:icon="['fas', 'fa-cart-plus']")
         b-badge(variant='danger') {{ user.cart }}
       b-btn(v-if="user.isLogin" @click="logout" variant="light")
-        font-awesome-icon.iconColor(:icon="['fas', 'fa-right-from-bracket']")
+        font-awesome-icon.iconColor.my-0(:icon="['fas', 'fa-right-from-bracket']")
       b-avatar(variant="info" v-if="user.isLogin" :src="user.avatar")
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')

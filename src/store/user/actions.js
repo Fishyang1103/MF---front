@@ -120,6 +120,7 @@ export const addCart = async ({ commit, state }, data) => {
       text: '加入購物車成功'
     })
   } catch (error) {
+    console.log(error)
     swal.fire({
       icon: 'error',
       title: '錯誤',

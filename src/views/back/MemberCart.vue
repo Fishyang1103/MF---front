@@ -15,39 +15,61 @@
     p.text-center 總金額 {{ total }}
     div.mt-5
       h4 聯絡資訊
-      b-form(style="background-color: aqua;")
+      b-form(@submit.stop.prevent @reset="onReset")
         b-row
           b-col(cols='6')
-            b-form-group#input-group-1(label='訂購人姓名:' label-for='input-1')
-              b-form-input#input-1(v-model='form.name' style="background: red;" placeholder='姓名' required)
+            label(for='feedback-name') 訂購人姓名
+            b-form-input#feedback-name(v-model='form.name' :state='validation.name')
+            b-form-invalid-feedback(:state='validation.name').
+              必填欄位
+            b-form-valid-feedback(:state='validation.name').
+              Ok
           b-col(cols='6')
-            b-form-group#input-group-2(label='連絡電話:' label-for='input-2')
-              b-form-input#input-2(v-model='form.phone' placeholder='電話號碼' required)
+            label(for='feedback-phone') 聯絡電話
+            b-form-input#feedback-phone(v-model='form.phone' :state='validation.phone')
+            b-form-invalid-feedback(:state='validation.phone').
+              若為市內電話需加區碼(例如:台北02)
+            b-form-valid-feedback(:state='validation.phone').
+              Ok
           b-col(cols='12')
-            b-form-group#input-group-3(label='欲送達地址:' label-for='input-3')
-              b-form-input#input-3(v-model='form.address' placeholder='自取不用填寫')
-        b-row
+            b-form-group#input-group-3(label='欲送達地址:' label-for='input-3' style="margin-top:10px;")
+            b-form-input#input-3(v-model='form.address' placeholder='自取不用填寫' style="margin-top:-10px;")
+            //- b-form-valid-feedback(:state='validation.name').
+            //-   Ok.
+          b-col.mt-3(cols='6')
+            b-form-radio-group(v-model='form.courier' :options='options1' :state='state' name='radio-validation')
+              b-form-invalid-feedback(:state='state') 請選擇其中一項
+              b-form-valid-feedback(:state='state') ok
+          b-col.mt-3(cols='6')
+            h3 付款方式：ATM
           b-col(cols='6')
-            b-form-group#input-group-4(label='選擇運送方式:' label-for='input-4')
-              b-form-select#input-4(v-model='form.courier' :options="couriers" style="background: red;"  required)
-          b-col(cols='6')
-            b-form-group#input-group-5(label='選擇付款方式:' label-for='input-5')
-              b-form-select#input-5(v-model='form.payment' :options="couriers" style="background: red;"  required)
-      //- b-form-input(v-model='text' placeholder='Enter your name')
-      //- b-form(@submit='onSubmit' @reset='onReset')
-      //-   b-form-group#input-group-1(label='Email address:' label-for='input-1' description='Well never share your email with anyone else.')
-      //- b-form-input#input-1(v-model='form.phone' type='email' placeholder='Enter email' required)
-  //-     b-form-group#input-group-2(label='Your Name:' label-for='input-2')
-  //-       b-form-input#input-2(v-model='form.name' placeholder='Enter name' required)
-  //-     b-form-group#input-group-3(label='Food:' label-for='input-3')
-  //-       b-form-select#input-3(v-model='form.remark' :options='foods' required)
-  //-     b-form-group#input-group-4(v-slot='{ ariaDescribedby }')
-  //-       b-form-checkbox-group#checkboxes-4(v-model='form.checked')
-  //-         b-form-checkbox(value='me') Check me out
-  //-         b-form-checkbox(value='that') Check that out
-  //-     b-button(type='submit' variant='primary') Submit
-  //-     b-button(type='reset' variant='danger') Reset
-    b-btn.w-25(variant='success' block @click='checkout' :disabled='products.length === 0') 結帳
+            label(for='example-datepicker') Choose a date
+            b-form-datepicker#example-datepicker.mb-2(selected-variant='warning'  v-model='form.deliveryDate')
+          b-col(cols='12')
+            b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='留言給店家' rows='3' max-rows='6')
+        b-row.d-flex.justify-content-end.pr-3
+          b-btn.mt-3(type='reset' variant='danger') 打錯重來
+          b-btn.mt-3.ml-3(variant='success' @click='checkout' :disabled='products.length === 0') 結帳
+
+        //-     b-form-group#input-group-1(label='訂購人姓名:' label-for='input-1')
+        //-       b-form-input#input-1(v-model='form.name' placeholder='姓名' required)
+        //-   b-col(cols='6')
+        //-     b-form-group#input-group-2(label='連絡電話:' label-for='input-2')
+        //-       b-form-input#input-2(v-model='form.phone' placeholder='電話號碼' required)
+        //-   b-col(cols='12')
+        //-     b-form-group#input-group-3(label='欲送達地址:' label-for='input-3')
+        //-       b-form-input#input-3(v-model='form.address' placeholder='自取不用填寫')
+        //- b-row
+        //-   b-col(cols='6')
+        //-     b-form-group#input-group-4(label='選擇運送方式:' label-for='input-4')
+        //-       b-form-select#input-4(v-model='form.courier' :options="couriers"   required)
+        //-   b-col(cols='6')
+        //-     b-form-group#input-group-5(label='選擇付款方式:' label-for='input-5')
+        //-       b-form-select#input-5(v-model='form.payment' :options="payments"   required)
+        //- b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='留言給店家' rows='3' max-rows='6')
+        //- b-row.d-flex.justify-content-end.pr-3
+          b-btn(type='reset' variant='danger') 打錯重來
+          b-btn.ml-3(variant='success' @click='checkout' :disabled='products.length === 0') 結帳
 </template>
 
 <script>
@@ -59,22 +81,19 @@ export default {
         { key: 'image', label: '圖片' },
         { key: 'name', label: '名稱' },
         { key: 'price', label: '價格' },
-        { key: 'action', label: '操作' }
+        { key: 'action', label: '數量' }
       ],
-      couriers: [
-        { text: '運送方式', value: '' },
-        '宅配', '自取'
-      ],
-      payments: [
-        { text: '付款方式', value: '' },
-        '貨到付款', 'ATM轉帳'
+      options1: [
+        { text: '宅配', value: '宅配' },
+        { text: '自取', value: '自取' }
       ],
       form: {
         name: '',
         phone: '',
         address: '',
         courier: '',
-        payment: '',
+        deliveryDate: '',
+        deliveryTime: '',
         remark: ''
       }
     }
@@ -128,10 +147,36 @@ export default {
     rowClass (item, type) {
       if (!item || type !== 'row') return
       return !item.product.sell ? 'bg-danger' : ''
+    },
+    onSubmit (event) {
+      event.preventDefault()
+      alert(JSON.stringify(this.form))
+    },
+    onReset (event) {
+      event.preventDefault()
+      // Reset our form values
+      this.form.name = ''
+      this.form.phone = ''
+      this.form.address = ''
+      this.form.courier = ''
+      this.form.remark = ''
+      // Trick to reset/clear native browser form validation state
+      this.show = false
+      this.$nextTick(() => {
+        this.show = true
+      })
     }
   },
   computed: {
-    // 總金額計算
+    validation () {
+      return {
+        name: this.form.name.length >= 1,
+        phone: this.form.phone.length === 10
+      }
+    },
+    state () {
+      return Boolean(this.form.courier)
+    },
     total () {
       return this.products.reduce((accumulator, currentValue) => {
         return accumulator + currentValue.quantity * currentValue.product.price
