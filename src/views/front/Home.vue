@@ -27,17 +27,17 @@
   div.example-3d
     swiper.swiper(:options='swiperOption')
       swiper-slide.lang-1
-        p(style="position: absolute;right:0px;bottom:-18px;") 玫瑰
+        h4(style="position: absolute;right:0px;bottom:-10px;") 玫瑰
       swiper-slide.lang-2
-        p(style="position: absolute;right:0px;bottom:-18px;") 百合
+        h4(style="position: absolute;right:0px;bottom:-10px;") 百合
       swiper-slide.lang-3
-        p(style="position: absolute;right:0px;bottom:-18px;") 鬱金香
+        h4(style="position: absolute;right:0px;bottom:-10px;") 鬱金香
       swiper-slide.lang-4
-        p(style="position: absolute;right:0px;bottom:-18px;") 菊花
+        h4(style="position: absolute;right:0px;bottom:-10px;") 菊花
       swiper-slide.lang-5
-        p(style="position: absolute;right:0px;bottom:-18px;") 桔梗
+        h4(style="position: absolute;right:0px;bottom:-10px;") 桔梗
       swiper-slide.lang-6
-        p(style="position: absolute;right:0px;bottom:-18px;") 向日葵
+        h4(style="position: absolute;right:0px;bottom:-10px;") 向日葵
       .swiper-pagination(slot='pagination')
   h2.text-center.my-5.wordColor 花の呵護
   b-container#hover.my-5
@@ -48,12 +48,8 @@
         img.objectFit(src='~@/assets/image/carehome-2.jpg')
       b-col.care-3(sm='12',md='4')
         img.objectFit(src='~@/assets/image/orchid-2.jpeg')
-    //- .card
-    //-   img(src='https://images.pexels.com/photos/1248157/pexels-photo-1248157.jpeg?cs=srgb&dl=photo-of-galaxy-1248157.jpg&fm=jpg')
-    //- .card
-    //-   img(src='https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-    //- .card
-    //-   img(src='https://images.pexels.com/photos/544268/pexels-photo-544268.jpeg?cs=srgb&dl=amazing-astronomy-background-bright-544268.jpg&fm=jpg')
+  div.top(v-if="btnFlag" @click="backTop")
+    font-awesome-icon.iconColor(:icon="['fas', 'fa-circle-up']" size="4x")
 </template>
 
 <style scope>
@@ -190,7 +186,8 @@ export default {
           el: '.swiper-pagination',
           clickable: true
         }
-      }
+      },
+      btnFlag: false
     }
   }
 }

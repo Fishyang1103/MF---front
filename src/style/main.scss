@@ -44,3 +44,15 @@ $breakpoint-xxl:1400px;
 .iconColor{
   color:#D95D5E;
 }
+
+// 回到頂部icon
+.top {
+  position: fixed ;
+  bottom: 45px ;
+  right: 35px ;
+  background: transparent ;
+  text-align: center ;
+  line-height: 60px ;
+  color: red ;
+  cursor: pointer ;
+}

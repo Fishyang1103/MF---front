@@ -20,6 +20,13 @@
     template(#cell(products)='data')
       ul
         li(v-for='product in data.item.products' :key='product._id') {{ product.product.name }} x {{ product.quantity }}
+    template(#cell(remark)='data')
+      | {{ data.item.userInfo.remark}}
+    template(#cell(form.state)='data')
+      |
+      b-form-group.mt-4(label='訂單狀態')
+          b-form-radio(v-model='form.state' :options='options') 已出貨
+          b-form-radio(v-model='form.state' :options='options' ) 已聯絡
 </template>
 
 <script>
@@ -38,8 +45,16 @@ export default {
         // { key: 'user', label: '使用者' },
         { key: 'date', label: '訂購日' },
         { key: 'products', label: '商品' },
-        { key: 'remark', label: '備註' }
-      ]
+        { key: 'remark', label: '備註' },
+        { key: 'state', label: '訂單狀況' }
+      ],
+      options: [
+        { text: '還沒處理', value: '123' },
+        { text: '12', value: '34' }
+      ],
+      form: {
+        state: ''
+      }
     }
   },
   async created () {

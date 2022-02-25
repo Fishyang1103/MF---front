@@ -46,6 +46,8 @@
       © 2022  Fish Yang
     b-col.text-center(md='12').
       圖片來源：取自網路｜僅學習用途，無商業使用
+  div.top(v-if="btnFlag" @click="backTop")
+      font-awesome-icon.iconColor(:icon="['fas', 'fa-circle-up']" size="4x")
 </template>
 <script>
 export default {
@@ -54,8 +56,16 @@ export default {
       form: {
         account: '',
         password: ''
-      }
+      },
+      btnFlag: false
     }
+  },
+  // 回到頂部設定
+  mounted () {
+    window.addEventListener('scroll', this.scrollToTop)
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.scrollToTop)
   },
   methods: {
     login () {
@@ -88,6 +98,29 @@ export default {
       // https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id={CHANNEL_ID}&redirect_uri={CALLBACK_URL}&state={STATE}&bot_prompt={BOT_PROMPT}&scope={SCOPE_LIST}
 
       // 回傳的  https://dtns-test-app.herokuapp.com/auth?friendship_status_changed=false&code=JFJstzoT7w62112rXfyy&state=MX44ZkxPWUg%3D
+    },
+    // 回到頂部
+    backTop () {
+      const that = this
+      const timer = setInterval(() => {
+        const ispeed = Math.floor(-that.scrollTop / 5)
+        document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+        if (that.scrollTop === 0) {
+          clearInterval(timer)
+        }
+      }, 16)
+    },
+
+    // 高度大於50 出現icon
+    scrollToTop () {
+      const that = this
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      that.scrollTop = scrollTop
+      if (that.scrollTop > 50) {
+        that.btnFlag = true
+      } else {
+        that.btnFlag = false
+      }
     }
   },
   computed: {
