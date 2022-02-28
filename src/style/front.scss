@@ -48,6 +48,11 @@
     height:50px;
     background:$themeColor;
   }
+  .homePage {
+    @include lg{
+      display: none;
+    }
+  }
   .logoimg{
     display: none;
     @include lg{
@@ -60,5 +65,8 @@
   }
   .badge{
     top: -4px;
+  }
+  .badge-secondary{
+    background-color: transparent ;
   }
 }

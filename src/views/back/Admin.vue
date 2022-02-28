@@ -1,42 +1,28 @@
 <template lang="pug">
 #top
   #wrapper
-    #sidebar-wrapper
+    #sidebar-wrapper(style="overflow: hidden;")
       ul.sidebar-nav
-        li.sidebar-brand.h-100.mt-3
-          img(src='~@/assets/image/logo.png' style="height: 200px;")
+        li.sidebar-brand.h-100(style='margin-left:-20px;')
+          img(src='~@/assets/image/logo.jpg' style="height: 250px;width:250;")
+        li.mt-5
+          b-btn(pill to='/back/admin/adminproducts' variant="outline-danger")
+            h4.wordColor 商品管理
         li.mt-5.text-center
-          b-btn(to='/back/admin/adminproducts' variant="warning")
-            h4 商品管理
-        li.mt-5.text-center
-          b-btn(to='/back/admin/adminorders' variant="warning")
-            h4 訂單管理
+          b-btn(pill to='/back/admin/adminorders' variant="outline-warning")
+            h4(style='color:orange;') 訂單管理
     div.text-right
-      b-btn.mr-2.mt-3(v-if="user.isLogin && user.isAdmin" to='/' variant="warning") 首頁
-    //- //  Page Content
-    //- #page-content-wrapper
-    //-   .container-fluid
-    //-     .row
-    //-       .col-lg-12
-    //-         h1 Simple Sidebar
-    //-         p This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.
-    //-         p
-    //-           | Make sure to keep all page content within the
-    //-           code #page-content-wrapper
-    //-           | .
-    //-         a.btn.btn-default#menu-toggle(href='#menu-toggle') Toggle Menu
+        div
+            b-btn.mr-2.mt-3.hide(v-if="user.isLogin && user.isAdmin" to='/' variant="warning") 商品管理
+            b-btn.mr-2.mt-3.hide(v-if="user.isLogin && user.isAdmin" to='/' variant="warning") 訂單管理
+        b-btn.mr-2.mt-3(v-if="user.isLogin && user.isAdmin" to='/' variant="warning") 首頁
+
   router-view
 </template>
 <style scope>
 h4{
-  margin:0;
+margin:0;
 }
-
-/* body {
-    overflow-x: hidden;
- } */
-
-/* Toggle Styles */
 
 #wrapper {
     padding-left: 0;
@@ -102,11 +88,11 @@ h4{
     color: #999999;
 }
 
-.sidebar-nav li a:hover {
+/* .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
     background: rgba(255,255,255,0.2);
-}
+} */
 
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
@@ -119,16 +105,19 @@ h4{
     line-height: 60px;
 }
 
-.sidebar-nav > .sidebar-brand a {
+/* .sidebar-nav > .sidebar-brand a {
     color: #999999;
-}
+} */
 
-.sidebar-nav > .sidebar-brand a:hover {
+/* .sidebar-nav > .sidebar-brand a:hover {
     color: #fff;
     background: none;
-}
+} */
 
-@media(min-width:768px) {
+@media(min-width:992px) {
+    .hide {
+        display:block;
+    }
     #wrapper {
         padding-left: 250px;
     }

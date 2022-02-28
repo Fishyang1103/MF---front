@@ -1,13 +1,9 @@
 <template lang="pug">
 #products
   b-container.contentMt
-    //- div.goTop
-    //-   a.goTopBtn.jq-goTop(href='#')
-    //-   i.fas.fa-arrow-alt-circle-up.fa-3x
-    //-   font-awesome-icon.iconColor(:icon="['fas', 'fa-right-from-bracket']")
     h1.text-center.wordColor.mb-5#title 商品列表
     b-row.d-flex.justify-content-center.my-3
-      b-col(cols='12')
+      //- b-col(cols='12')
       b-tabs.text-center(pills)
         b-tab(title='全部商品' active  @click="filter = ''")
         b-tab(title='經典鮮花' @click="filter = '經典鮮花'")

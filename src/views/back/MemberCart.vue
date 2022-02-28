@@ -1,6 +1,6 @@
 <template lang="pug">
 #membercart
-  b-container
+  b-container.contentMt
     b-table(:items='products' :fields='fields' :tbody-tr-class="rowClass")
       template(#cell(image)='data')
         img(v-if='data.item.product.image' :src='data.item.product.image' style='height: 50px')
@@ -9,7 +9,7 @@
       template(#cell(price)='data')
         | {{ data.item.product.price }}
       template(#cell(action)='data')
-        b-form-spinbutton(v-model='data.item.quantity' min="1" inline @input='updateCart(data.index, data.item.quantity)')
+        b-form-spinbutton.mr-3(v-model='data.item.quantity' min="1" inline @input='updateCart(data.index, data.item.quantity)')
         | &emsp;&emsp;
         b-btn(variant='light' @click='updateCart(data.index, 0)') 🗑️
     p.text-center 總金額 {{ total }}
@@ -34,8 +34,6 @@
           b-col(cols='12')
             b-form-group#input-group-3(label='欲送達地址:' label-for='input-3' style="margin-top:10px;")
             b-form-input#input-3(v-model='form.address' placeholder='自取不用填寫' style="margin-top:-10px;")
-            //- b-form-valid-feedback(:state='validation.name').
-            //-   Ok.
           b-col.mt-3(cols='6')
             b-form-radio-group(v-model='form.courier' :options='options1' :state='state' name='radio-validation')
               b-form-invalid-feedback(:state='state') 請選擇其中一項
@@ -45,34 +43,26 @@
           b-col.mt-3(cols='6')
             label(for='example-datepicker') 請選擇日期
             b-form-datepicker#example-datepicker.mb-2(:dark='true' :state="true" selected-variant='warning' reset-button  v-model='form.deliveryDate')
-          b-col.mt-3(cols='6')
-            label(for= 'timepicker-placeholder') 請選擇時間
+          b-col.mt-3(lg='6')
+            label#label(for= 'timepicker-placeholder') 請選擇時間
             b-time#time(v-model="form.deliveryTime" placeholder="Choose a time" locale="en")
-          b-col(cols='12')
+          //- b-col.mt-3(cols='12')
+          //-   img-inputer(
+          //-   accept="image/*"
+          //-   v-model="form.image"
+          //-   theme="light"
+          //-   size="large"
+          //-   bottom-text="點選或拖拽圖片以修改"
+          //-   hover-text="點選或拖拽圖片以修改"
+          //-   placeholder="點選或拖拽選擇圖片"
+          //-   :max-size="1024"
+          //-   exceed-size-text="檔案大小不能超過"
+          //- )
+          b-col(lg='12')
             b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='留言給店家' rows='3' max-rows='6')
         b-row.d-flex.justify-content-end.pr-3
           b-btn.mt-3(type='reset' variant='danger') 打錯重來
           b-btn.mt-3.ml-3(variant='primary' @click='checkout' :disabled='products.length === 0') 結帳
-
-        //-     b-form-group#input-group-1(label='訂購人姓名:' label-for='input-1')
-        //-       b-form-input#input-1(v-model='form.name' placeholder='姓名' required)
-        //-   b-col(cols='6')
-        //-     b-form-group#input-group-2(label='連絡電話:' label-for='input-2')
-        //-       b-form-input#input-2(v-model='form.phone' placeholder='電話號碼' required)
-        //-   b-col(cols='12')
-        //-     b-form-group#input-group-3(label='欲送達地址:' label-for='input-3')
-        //-       b-form-input#input-3(v-model='form.address' placeholder='自取不用填寫')
-        //- b-row
-        //-   b-col(cols='6')
-        //-     b-form-group#input-group-4(label='選擇運送方式:' label-for='input-4')
-        //-       b-form-select#input-4(v-model='form.courier' :options="couriers"   required)
-        //-   b-col(cols='6')
-        //-     b-form-group#input-group-5(label='選擇付款方式:' label-for='input-5')
-        //-       b-form-select#input-5(v-model='form.payment' :options="payments"   required)
-        //- b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='留言給店家' rows='3' max-rows='6')
-        //- b-row.d-flex.justify-content-end.pr-3
-          b-btn(type='reset' variant='danger') 打錯重來
-          b-btn.ml-3(variant='success' @click='checkout' :disabled='products.length === 0') 結帳
 </template>
 
 <script>
@@ -97,6 +87,8 @@ export default {
         courier: '',
         deliveryDate: '',
         deliveryTime: '',
+        // total: '',
+        // image: '',
         remark: ''
       }
     }
@@ -140,7 +132,7 @@ export default {
         this.$swal({
           icon: 'success',
           title: '成功',
-          text: '送出訂單，專人將於上班日一天內與您聯絡'
+          text: '送出訂單，專人將於上班日兩天內與您聯絡'
         })
       } catch (error) {
         console.log(error)

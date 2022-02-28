@@ -104,15 +104,6 @@ const routes = [
             }
           },
           {
-            path: 'memberinfo',
-            name: 'MemberInfo',
-            component: () => import(/* webpackChunkName: "Member" */ '../views/back/MemberInfo.vue'),
-            meta: {
-              login: true,
-              title: '寄送資料 | MF'
-            }
-          },
-          {
             path: 'memberorders',
             name: 'MemberOrders',
             component: () => import(/* webpackChunkName: "Member" */ '../views/back/MemberOrders.vue'),
@@ -182,8 +173,10 @@ router.beforeEach((to, from, next) => {
   }
 })
 
+// 換router會回到最上面
 // 進入每頁網站換title
-router.afterEach((to, from) => {
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0)
   document.title = to.meta.title
 })
 

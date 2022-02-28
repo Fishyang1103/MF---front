@@ -4,10 +4,10 @@
     h1.text-center.wordColor.mb-5 花の呵護
     div
       b-card.overflow-hidden(no-body style='max-width: 1100px;border:none;')
-        b-row(no-gutters style="height: 350px;")
-          b-col(sm='12',md='4')
+        b-row#care-1(no-gutters)
+          b-col(sm='12',md='6')
             b-card-img.objectFit.rounded-0.care-1
-          b-col(md='8')
+          b-col(md='6')
             b-card-body
               h3.wordColor.mt-1.ml-3 鮮花系列
             b-card-text.ml-3
@@ -19,13 +19,13 @@
                 li 若開始出現枯黃的花瓣、葉子，請將枯萎處摘除。枯萎的花葉會讓其他健康的花葉加速枯萎。
                 li 請將花與水果保持距離，因水果成熟的過程中會釋放乙烯，會造成植物成熟與老化。
       b-card.overflow-hidden.mt-5(no-body style='max-width: 1100px;border:none;')
-        b-row.flex-row-reverse(no-gutters style="height: 400px;")
-          b-col(md='4')
+        b-row.flex-row-reverse#orchid(no-gutters)
+          b-col(md='6')
               b-card-img.objectFit.rounded-0.care-2
-          b-col(md='8')
+          b-col(md='6')
               b-card-body
-                h3.wordColor.mt-1.ml-3 蘭花系列
-              b-card-text.ml-3
+                h3.wordColor.mt-1.mr-3 蘭花系列
+              b-card-text.mr-3
                 ul
                   li 澆水是存活關鍵：
                     ul
@@ -36,10 +36,10 @@
                   li 蘭花盆栽擺放位置光線充足，早上或黃昏陽光透過窗戶斜射最佳，忌諱直射。
                   li 需要空氣流通，窗戶旁最佳，切記擺放門窗緊閉空間。
       b-card.overflow-hidden.mt-5(no-body style='max-width: 1100px;border:none;')
-        b-row(no-gutters style="height: 350px;")
-          b-col(md='4')
+        b-row(no-gutters)
+          b-col(md='6')
               b-card-img.objectFit.rounded-0.care-3
-          b-col(md='8')
+          b-col(md='6')
               b-card-body
                 h3.wordColor.mt-1.ml-3 盆花、桌花系列
               b-card-text.ml-3
@@ -49,13 +49,13 @@
                   li 若無澆水壺，可先使用吸管取水，再將水放入其中。
                   li 請遠離水果，水果成熟時釋放的乙烯會加速花的枯萎。
       b-card.overflow-hidden.mt-5(no-body style='max-width: 1100px;border:none;')
-        b-row.flex-row-reverse(no-gutters style="height: 350px;")
-          b-col(md='4')
+        b-row.flex-row-reverse(no-gutters)
+          b-col(md='6')
               b-card-img.objectFit.rounded-0.care-4
-          b-col(md='8')
+          b-col(md='6')
               b-card-body
-                h3.wordColor.mt-1.ml-3 永生花系列
-              b-card-text.ml-3
+                h3.wordColor.mt-1.mr-3 永生花系列
+              b-card-text.mr-3
                 ul
                   li 乾燥永生花很怕濕氣，所以請保持乾燥，避免陽光直射。
                   li 建議不要拆除包裝，維持原樣貌即可。

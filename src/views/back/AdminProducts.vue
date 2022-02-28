@@ -91,6 +91,21 @@
       b-form-radio(v-model='form.sell' :value='true') 上架
       b-form-radio(v-model='form.sell' :value='false') 下架
 </template>
+
+<style>
+#adminproduct{
+  background: $backColor;
+}
+#adminproduct.content{
+    margin-left:260px;
+  }
+@media screen and (max-width: 992px) {
+  #adminproduct.content{
+    margin-left:0px;
+  }
+}
+</style>
+
 <script>
 export default {
   data () {
@@ -103,7 +118,7 @@ export default {
         { key: 'category', label: '分類' },
         { key: 'description', label: '敘述' },
         { key: 'sell', label: '上架' },
-        { key: 'action', label: '操作' }
+        { key: 'action', label: '編輯' }
       ],
       products: [],
       modalSubmitting: false,
@@ -226,9 +241,3 @@ export default {
   }
 }
 </script>
-
-<style scope>
-.content{
-    margin-left:23%;
-  }
-</style>

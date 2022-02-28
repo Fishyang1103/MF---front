@@ -1,6 +1,6 @@
 <template lang="pug">
-#adminorders.content
-  b-table(:items="orders" :fields='fields')
+#adminorders.content.mt-2
+  b-table(:items="orders" :fields='fields' style='width:1200px;')
     template(#cell(user)='data')
       | {{ data.item.user.account}}
     template(#cell(name)='data')
@@ -22,12 +22,26 @@
         li(v-for='product in data.item.products' :key='product._id') {{ product.product.name }} x {{ product.quantity }}
     template(#cell(remark)='data')
       | {{ data.item.userInfo.remark}}
+    //- template(#cell(remark)='data')
+    //- | {{ data.item.userInfo.total}}
     template(#cell(form.state)='data')
-      |
       b-form-group.mt-4(label='訂單狀態')
-          b-form-radio(v-model='form.state' :options='options') 已出貨
-          b-form-radio(v-model='form.state' :options='options' ) 已聯絡
+          b-form-radio(v-model='form.state' :value="true") 已出貨
+          b-form-radio(v-model='form.state' :value="false") 已聯絡
 </template>
+<style>
+#adminorders{
+  background: $backColor;
+}
+#adminorders.content{
+  margin-left:260px;
+}
+@media screen and (max-width: 992px) {
+  #adminorders.content{
+    margin-left:0px;
+  }
+}
+</style>
 
 <script>
 export default {
@@ -46,6 +60,7 @@ export default {
         { key: 'date', label: '訂購日' },
         { key: 'products', label: '商品' },
         { key: 'remark', label: '備註' },
+        // { key: 'total', label: '金額' },
         { key: 'state', label: '訂單狀況' }
       ],
       options: [
@@ -53,7 +68,7 @@ export default {
         { text: '12', value: '34' }
       ],
       form: {
-        state: ''
+        state: false
       }
     }
   },
@@ -78,8 +93,3 @@ export default {
 </script>
 
 </template>
-<style scope>
-.content{
-  margin-left:20%;
-}
-</style>

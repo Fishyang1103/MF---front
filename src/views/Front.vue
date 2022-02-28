@@ -10,9 +10,10 @@
       b-btn(v-if="user.isLogin && !user.isAdmin" to='/back/member/membercart' variant="light")
         font-awesome-icon.iconColor(:icon="['fas', 'fa-cart-plus']")
         b-badge(variant='danger') {{ user.cart }}
-      b-btn(v-if="user.isLogin" @click="logout" variant="light")
+      b-btn.mr-3(v-if="user.isLogin" @click="logout" variant="light")
         font-awesome-icon.iconColor.my-0(:icon="['fas', 'fa-right-from-bracket']")
-      b-avatar(variant="info" v-if="user.isLogin" :src="user.avatar")
+      b-avatar(variant="info" v-if="user.isLogin && !user.isAdmin" :src="user.avatar")
+      b-avatar(v-if="user.isLogin && user.isAdmin" src="https://g.udn.com.tw/upfiles/B_NN/nn92214/PSN_PHOTO/383/f_12313383_1.jpg")
       b-modal#modal-1(ref="my-modal" hide-footer @hidden="hideModal")
         b-tabs(align='around')
           b-tab(title='會員登入' active).text-center.my-5
@@ -32,8 +33,9 @@
         b-navbar-toggle(target="nav-collapse")
         b-collapse(id="nav-collapse" is-nav)
           b-navbar-nav.mx-auto
-            b-nav-item.h4.my-0.navWord(to='/about') 關於我們
-            b-nav-item.h4.my-0.navWord(to='/products' style="margin-left: 18px;") 商品介紹
+            b-nav-item.h4.my-0.navWord.homePage(to='/') 首頁
+            b-nav-item.h4.my-0.navWord(to='/about' style="margin-right: 18px;") 關於我們
+            b-nav-item.h4.my-0.navWord(to='/products') 商品介紹
             b-nav-item.logoimg(to='/')
               span#space
                 div.box
@@ -46,8 +48,8 @@
       © 2022  Fish Yang
     b-col.text-center(md='12').
       圖片來源：取自網路｜僅學習用途，無商業使用
-  div.top(v-if="btnFlag" @click="backTop")
-      font-awesome-icon.iconColor(:icon="['fas', 'fa-circle-up']" size="4x")
+  div.top(v-if="btnFlag" @click="backTop" style='width:60px;height:60px;border-radius:50%;background:#D95D5E;')
+    font-awesome-icon(:icon="['fas', 'fa-arrow-up']" size="2x")
 </template>
 <script>
 export default {

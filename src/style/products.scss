@@ -14,4 +14,11 @@
     height: 280px;
     object-fit: cover;
   }
+  .nav-pills{
+    margin-left: 95px;
+    justify-content: space-around;
+    @include sm {
+      justify-content: center;
+      }
+  }
 }

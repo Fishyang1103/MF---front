@@ -4,29 +4,68 @@
     margin-bottom: 20px;
   }
   .care-1 {
-    background: url('~@/assets/image/care-1-1.jpg') no-repeat center/cover;
+    background: url('~@/assets/image/bouquet-6.jpeg') no-repeat center/cover;
     height: 100%;
   }
   .care-2 {
-    background: url('~@/assets/image/care-2.jpg') no-repeat center/cover;
+    background: url('~@/assets/image/care-2.jpg') no-repeat;
     height: 100%;
-    background-position-y: inherit;
+    background-size: cover;
   }
   .care-3 {
-    background: url('~@/assets/image/care-3-1.jpg') no-repeat center/cover;
+    background: url('~@/assets/image/potted-1.jpeg') no-repeat center/cover;
     height: 100%;
-    background-position-y: unset;
   }
   .care-4{
     background: url('~@/assets/image/care-4.jpg') no-repeat center/cover;
     height: 100%;
+    background-position-y: -65px;
   }
   li{
     line-height: 2;
   }
-  img{
-    @include sm {
-      height: 300px;
+  #care-1{
+    height: 300px;
+    @include md {
+      height: 620px;
       }
+    @include lg {
+      height: 500px;
+      }
+  }
+  // img{
+  //   @include sm {
+  //     height: 300px;
+  //   }
+  //   @include md {
+  //     height: 300px;
+  //   }
+  //   @include lg {
+  //     height: 400px;
+  //   }
+  // }
+  .no-gutters{
+    @include sm {
+      height: 450px;
+    }
+    @include md {
+      height: 400px;
+    }
+    @include lg {
+      height: 450px;
+    }
+  }
+  #orchid{
+    @include sm {
+      height: 600px;
+    }
+    @include md {
+      height: 540px;
+      background-position-y:15px;
+    }
+    @include lg {
+      height:450px;
+      background-position-y: -52px;
+    }
   }
 }

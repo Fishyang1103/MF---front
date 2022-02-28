@@ -7,4 +7,17 @@
   .nav-link{
     color: black;
   }
+  img{
+    height:100px;
+    width:100px;
+    object-fit: cover;
+    @include md{
+      height:150px;
+      width:150px;
+    }
+    @include lg{
+      height:200px;
+      width:200px;
+    }
+  }
 }

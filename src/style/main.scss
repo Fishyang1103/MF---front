@@ -1,4 +1,4 @@
-// 全部共用的class
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Rowdies:wght@300;400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 body,html {
@@ -50,9 +50,19 @@ $breakpoint-xxl:1400px;
   position: fixed ;
   bottom: 45px ;
   right: 35px ;
-  background: transparent ;
+  // background: white ;
   text-align: center ;
-  line-height: 60px ;
-  color: red ;
+  line-height: 68px ;
+  color: white ;
   cursor: pointer ;
+  z-index: 1;
+}
+
+#eachproduct{
+  img{
+    height:100%;
+    @include md {
+      height:100%;
+    }
+  }
 }

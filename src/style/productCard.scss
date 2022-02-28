@@ -1,0 +1,8 @@
+#productCard{
+  .card img {
+    height: 440px;
+    @include md {
+      height: 320px;
+    }
+  }
+}

@@ -6,4 +6,19 @@
     position: absolute;
     right:150px;
   }
+  #label{
+    margin-right: 5px;
+    @include md {
+      margin-right: 70px;
+    }
+    @include lg {
+      margin-right: 2px;
+    }
+  }
+  #time{
+    margin-bottom: 10px;
+    @include md {
+      margin-bottom: 50px;
+    }
+  }
 }

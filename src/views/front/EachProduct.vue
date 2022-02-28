@@ -2,12 +2,13 @@
 #eachproduct
   b-container.contentMt
     b-overlay(:show='!sell')
-      template(#overlay)
-        h1 花材缺貨中
+      //- template(#overlay)
+      //-   h1 花材缺貨中
       b-row
-        b-col(cols='6')
-          img.w-100(:src='image')
-        b-col(cols='6')
+        b-col(md='6')
+          img.w-100.objectFit(:src='image'
+          )
+        b-col(md='6')
           h1.wordColor.my-5 {{ name }}
           h5.my-5(style='white-space: pre') {{ description }}
           h5.my-5 建議售價
@@ -15,6 +16,7 @@
           b-form-input.my-5(type='number' v-model.number='quantity' :state='quantityState' min='0')
           b-btn(block @click='addCart' style='background-color:#E9D4A7;border: none;color:black;') 加入購物車
 </template>
+/* style --> main */
 
 <script>
 

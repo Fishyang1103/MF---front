@@ -1,6 +1,6 @@
 <template lang="pug">
 #productCard
-  b-card.mt-5(img-top :img-src='product.image' style='height: 400px;')
+  b-card.mt-5(img-top :img-src='product.image')
     b-card-body
       b-card-title
         router-link(:to='"/eachproduct/" + product._id') {{ product.name }}
