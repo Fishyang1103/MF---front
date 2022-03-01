@@ -46,18 +46,18 @@
           b-col.mt-3(lg='6')
             label#label(for= 'timepicker-placeholder') 請選擇時間
             b-time#time(v-model="form.deliveryTime" placeholder="Choose a time" locale="en")
-          //- b-col.mt-3(cols='12')
-          //-   img-inputer(
-          //-   accept="image/*"
-          //-   v-model="form.image"
-          //-   theme="light"
-          //-   size="large"
-          //-   bottom-text="點選或拖拽圖片以修改"
-          //-   hover-text="點選或拖拽圖片以修改"
-          //-   placeholder="點選或拖拽選擇圖片"
-          //-   :max-size="1024"
-          //-   exceed-size-text="檔案大小不能超過"
-          //- )
+          b-col.mt-3(cols='12')
+            img-inputer(
+            accept="image/*"
+            v-model="form.image"
+            theme="light"
+            size="large"
+            bottom-text="點選或拖拽圖片以修改"
+            hover-text="點選或拖拽圖片以修改"
+            placeholder="點選或拖拽選擇圖片"
+            :max-size="1024"
+            exceed-size-text="檔案大小不能超過"
+          )
           b-col(lg='12')
             b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='留言給店家' rows='3' max-rows='6')
         b-row.d-flex.justify-content-end.pr-3
@@ -87,8 +87,8 @@ export default {
         courier: '',
         deliveryDate: '',
         deliveryTime: '',
-        // total: '',
-        // image: '',
+        total: '',
+        image: null,
         remark: ''
       }
     }
@@ -119,8 +119,16 @@ export default {
       }
     },
     async checkout () {
+      const fd = new FormData()
+      for (const key in this.form) {
+        if (key !== '_id') {
+          /* 把this.form塞進 formdata */
+          fd.append(key, this.form[key])
+        }
+        console.log(fd)
+      }
       try {
-        await this.api.post('/orders', this.form, {
+        await this.api.post('/orders', fd, {
           headers: {
             authorization: 'Bearer ' + this.user.token
           }

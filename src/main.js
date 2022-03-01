@@ -18,6 +18,7 @@ import 'vue-img-inputer/dist/index.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faRightFromBracket, faCartPlus, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import './registerServiceWorker'
 
 library.add(faRightFromBracket, faCartPlus, faArrowUp)
 Vue.component('font-awesome-icon', FontAwesomeIcon)

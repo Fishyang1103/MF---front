@@ -11,10 +11,10 @@
         li.mt-5.text-center
           b-btn(pill to='/back/admin/adminorders' variant="outline-warning")
             h4(style='color:orange;') 訂單管理
+        li.mt-5.text-center
+          b-btn(pill to='/back/admin/adminsendmessage' variant="outline-warning")
+            h4(style='color:orange;') 傳送訊息
     div.text-right
-        div
-            b-btn.mr-2.mt-3.hide(v-if="user.isLogin && user.isAdmin" to='/' variant="warning") 商品管理
-            b-btn.mr-2.mt-3.hide(v-if="user.isLogin && user.isAdmin" to='/' variant="warning") 訂單管理
         b-btn.mr-2.mt-3(v-if="user.isLogin && user.isAdmin" to='/' variant="warning") 首頁
 
   router-view

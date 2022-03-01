@@ -10,7 +10,6 @@ module.exports = {
     manifestOptions: {
       name: 'MF - FlowerShop',
       short_name: 'MF',
-      // 主題色
       theme_color: '#D95D5E',
       background_color: '#D95D5E',
       scope: './',
@@ -51,28 +50,28 @@ module.exports = {
         },
         {
           src: './img/icons/apple-touch-icon-120x120.png',
-          sizes: '120x120',
-          type: 'image/png'
+          size: '120x120',
+          typ: 'image/png'
         },
         {
           src: './img/icons/apple-touch-icon-152x152.png',
-          sizes: '152x152',
-          type: 'image/png'
+          size: '152x152',
+          typ: 'image/png'
         },
         {
           src: './img/icons/apple-touch-icon-180x180.png',
-          sizes: '180x180',
-          type: 'image/png'
+          size: '180x180',
+          typ: 'image/png'
         },
         {
           src: './img/icons/apple-touch-icon.png',
-          sizes: '180x180',
-          type: 'image/png'
+          size: '180x180',
+          typ: 'image/png'
         },
         {
           src: './img/icons/favicon-16x16.png',
-          sizes: '16x16',
-          type: 'image/png'
+          size: '16x16',
+          typ: 'image/png'
         },
         {
           src: './img/icons/favicon-32x32.png',

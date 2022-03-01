@@ -143,6 +143,16 @@ const routes = [
               admin: true,
               title: '商品管理 | MF'
             }
+          },
+          {
+            path: 'adminsendmessage',
+            name: 'AdminSendMessage',
+            component: () => import(/* webpackChunkName: "admin" */ '../views/back/AdminSendMessage.vue'),
+            meta: {
+              login: true,
+              admin: true,
+              title: '傳送訊息 | MF'
+            }
           }
         ]
       }

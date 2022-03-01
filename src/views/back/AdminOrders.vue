@@ -1,6 +1,6 @@
 <template lang="pug">
 #adminorders.content.mt-2
-  b-table(:items="orders" :fields='fields' style='width:1200px;')
+  b-table(:items="orders" :fields='fields')
     template(#cell(user)='data')
       | {{ data.item.user.account}}
     template(#cell(name)='data')
@@ -22,16 +22,22 @@
         li(v-for='product in data.item.products' :key='product._id') {{ product.product.name }} x {{ product.quantity }}
     template(#cell(remark)='data')
       | {{ data.item.userInfo.remark}}
-    //- template(#cell(remark)='data')
-    //- | {{ data.item.userInfo.total}}
-    template(#cell(form.state)='data')
-      b-form-group.mt-4(label='訂單狀態')
-          b-form-radio(v-model='form.state' :value="true") 已出貨
-          b-form-radio(v-model='form.state' :value="false") 已聯絡
+    template(#cell(price)='data')
+      | {{ sumPrice(data.item.products) }}
+    template(#cell(orderState)='data')
+      |{{ data.item.orderState }}
+      b-btn(@click='check(data.item._id, data.index)' v-b-modal.modal-state) 確認
+      div.d-flex.mt-2
+        p 已完成:
+      div(v-if='data.item.orderState === true') ✔
+  b-modal#modal-state(title='操作' centered ok-variant='success' ok-title='送出' cancel-variant='danger' cancel-title='取消' @ok='submitModal')
+    b-form-group(label='上架')
+      b-form-radio(v-model='form.orderState' :value='true') 已完成
+      b-form-radio(v-model='form.orderState' :value='false') 未完成
 </template>
 <style>
 #adminorders{
-  background: $backColor;
+  background: #FCFCFC;
 }
 #adminorders.content{
   margin-left:260px;
@@ -60,16 +66,52 @@ export default {
         { key: 'date', label: '訂購日' },
         { key: 'products', label: '商品' },
         { key: 'remark', label: '備註' },
-        // { key: 'total', label: '金額' },
-        { key: 'state', label: '訂單狀況' }
+        { key: 'price', label: '總金額' },
+        { key: 'orderState', label: '訂單狀況' }
       ],
-      options: [
-        { text: '還沒處理', value: '123' },
-        { text: '12', value: '34' }
-      ],
+      // options: [
+      //   { text: '還沒處理', value: '123' },
+      //   { text: '12', value: '34' }
+      // ],
       form: {
-        state: false
+        orderState: false
+      },
+      aa: '',
+      bb: ''
+    }
+  },
+  methods: {
+    sumPrice (products) {
+      const result = products.reduce((accumulator, currentValue) => {
+        return (
+          accumulator + currentValue.quantity * currentValue.product.price
+        )
+      }, 0)
+      console.log(result)
+      return new Intl.NumberFormat('en-IN').format(result)
+    },
+    async submitModal (event) {
+      event.preventDefault()
+      try {
+        await this.api.patch('/orders/' + this.aa, this.form, {
+          headers: {
+            authorization: 'Bearer ' + this.user.token
+          }
+        })
+        this.orders[this.bb].state = this.form.orderState
+        this.$refs.table.refresh()
+        this.$bvModal.hide('modal-state')
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: error.response.data.message
+        })
       }
+    },
+    check (id, index) {
+      this.aa = id
+      this.bb = index
     }
   },
   async created () {
@@ -91,5 +133,3 @@ export default {
   }
 }
 </script>
-
-</template>
