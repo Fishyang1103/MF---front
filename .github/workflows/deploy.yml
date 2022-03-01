@@ -27,9 +27,9 @@ jobs:
           npm install
           npm run build-linux
         env:
-          VUE_APP_API: ${{ secrets.VUE_APP_API }},
-          VUE_APP_CHANNEL_ID: ${{ secrets.VUE_APP_CHANNEL_ID }},
-          VUE_APP_CALLBACK_URL: ${{ secrets.VUE_APP_CALLBACK_URL }},
+          VUE_APP_API: ${{ secrets.VUE_APP_API }}
+          VUE_APP_CHANNEL_ID: ${{ secrets.VUE_APP_CHANNEL_ID }}
+          VUE_APP_CALLBACK_URL: ${{ secrets.VUE_APP_CALLBACK_URL }}
       # 步驟三：部署
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
