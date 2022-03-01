@@ -25,15 +25,15 @@
     template(#cell(price)='data')
       | {{ sumPrice(data.item.products) }}
     template(#cell(orderState)='data')
-      |{{ data.item.orderState }}
-      b-btn(@click='check(data.item._id, data.index)' v-b-modal.modal-state) 確認
-      div.d-flex.mt-2
-        p 已完成:
-      div(v-if='data.item.orderState === true') ✔
-  b-modal#modal-state(title='操作' centered ok-variant='success' ok-title='送出' cancel-variant='danger' cancel-title='取消' @ok='submitModal')
-    b-form-group(label='上架')
-      b-form-radio(v-model='form.orderState' :value='true') 已完成
-      b-form-radio(v-model='form.orderState' :value='false') 未完成
+      //- | {{ data.item.orderState }}
+      b-btn.my-2(@click='check(data.item._id, data.index)' variant='warning' v-b-modal.modal-state ) 編輯訂單狀況
+      //- div.d-flex.mt-2
+      //-   p 已完成:
+      div(v-if='data.item.orderState === true') 已聯絡及安排出貨
+  b-modal#modal-state(ref="my-modal" title='編輯訂單狀況' centered ok-variant='success' ok-title='確認' cancel-variant='danger' cancel-title='取消' @ok='submitModal')
+    b-form-group
+      b-form-radio(v-model='form.orderState' :value='false') 未聯絡
+      b-form-radio(v-model='form.orderState' :value='true') 已聯絡及安排出貨
 </template>
 <style>
 #adminorders{
@@ -98,10 +98,12 @@ export default {
             authorization: 'Bearer ' + this.user.token
           }
         })
-        this.orders[this.bb].state = this.form.orderState
+        this.orders[this.bb].orderState = this.form.orderState
         this.$refs.table.refresh()
+        this.$refs.table.save()
         this.$bvModal.hide('modal-state')
       } catch (error) {
+        console.log(error)
         this.$swal({
           icon: 'error',
           title: '錯誤',
