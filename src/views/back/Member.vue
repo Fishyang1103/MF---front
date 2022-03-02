@@ -50,11 +50,6 @@
   div.top(v-if="btnFlag" @click="backTop" style='width:60px;height:60px;border-radius:50%;background:#D95D5E;')
     font-awesome-icon(:icon="['fas', 'fa-arrow-up']" size="2x")
 </template>
-<style scope>
-#content{
-  min-height: calc(100vh - 250px);
-}
-</style>
 <script>
 export default {
   data () {

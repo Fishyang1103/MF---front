@@ -47,7 +47,7 @@
             label#label(for= 'timepicker-placeholder') 請選擇時間
             b-time#time(v-model="form.deliveryTime" placeholder="Choose a time" locale="en")
           b-col.mt-3(cols='6')
-            p 🌹傳送圖片或照片
+            p 🌹傳送圖片或照片 (大小不得超過1M)
             img-inputer(
             accept="image/*"
             v-model="form.image"

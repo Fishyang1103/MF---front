@@ -19,6 +19,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faRightFromBracket, faCartPlus, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './registerServiceWorker'
+import VueGtag from 'vue-gtag'
+
+// Google Analytics
+Vue.use(VueGtag, {
+  config: { id: 'G-ZT5V4NYKCR' }
+})
 
 library.add(faRightFromBracket, faCartPlus, faArrowUp)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
