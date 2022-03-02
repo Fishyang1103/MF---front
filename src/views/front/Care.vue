@@ -9,7 +9,7 @@
             b-card-img.objectFit.rounded-0.care-1
           b-col(md='8')
             b-card-body
-              h3.wordColor.mt-1.ml-3 鮮花系列
+              h3.wordColor.mt-1.ml-3.font-weight-bold 鮮花系列
             b-card-text.ml-3
               ul
                 li 收到後，鮮花還能再保存約 3 - 6 天，請避免太陽直曬，並保持通風良好，夏天建議放冷氣房。
@@ -24,7 +24,7 @@
               b-card-img.objectFit.rounded-0.care-2
           b-col(md='8')
               b-card-body
-                h3.wordColor.mt-1.mr-3 蘭花系列
+                h3.wordColor.mt-1.mr-3.font-weight-bold 蘭花系列
               b-card-text.mr-3
                 ul
                   li 澆水是存活關鍵：
@@ -41,7 +41,7 @@
               b-card-img.objectFit.rounded-0.care-3
           b-col(md='8')
               b-card-body
-                h3.wordColor.mt-1.ml-3 盆花、桌花系列
+                h3.wordColor.mt-1.ml-3.font-weight-bold 盆花、桌花系列
               b-card-text.ml-3
                 ul
                   li 請每天澆水在花器內的花藝海綿處，讓海綿保持濕潤。
@@ -54,7 +54,7 @@
               b-card-img.objectFit.rounded-0.care-4
           b-col(md='8')
               b-card-body
-                h3.wordColor.mt-1.mr-3 永生花系列
+                h3.wordColor.mt-1.mr-3.font-weight-bold 永生花系列
               b-card-text.mr-3
                 ul
                   li 乾燥永生花很怕濕氣，所以請保持乾燥，避免陽光直射。

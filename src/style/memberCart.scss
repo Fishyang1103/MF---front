@@ -21,4 +21,10 @@
       margin-bottom: 50px;
     }
   }
+  .form-control.is-invalid, .was-validated .form-control:invalid{
+    border-color: gray;
+  }
+  // .is-invalid{
+  //   display: none;
+  // }
 }

@@ -15,18 +15,18 @@
     p.text-center 總金額 {{ total }}
     div.mt-5
       h4 聯絡資訊
-      b-form(@submit.stop.prevent @reset="onReset")
+      b-form(@submit.stop.prevent @reset="onReset" @submit="onSubmit")
         b-row
           b-col(cols='6')
             label(for='feedback-name') 訂購人姓名
-            b-form-input#feedback-name(v-model='form.name' :state='validation.name')
+            b-form-input#feedback-name(v-model='form.name' :state='validation.name' required)
             b-form-invalid-feedback(:state='validation.name').
               必填欄位
             b-form-valid-feedback(:state='validation.name').
               Ok
           b-col(cols='6')
             label(for='feedback-phone') 聯絡電話
-            b-form-input#feedback-phone(v-model='form.phone' :state='validation.phone')
+            b-form-input#feedback-phone(v-model='form.phone' :state='validation.phone' required)
             b-form-invalid-feedback(:state='validation.phone').
               若為市內電話需加區碼(例如:台北02)
             b-form-valid-feedback(:state='validation.phone').
@@ -65,8 +65,8 @@
           b-col(lg='12')
             b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='卡片內容' rows='3' max-rows='6')
         b-row.d-flex.justify-content-end.pr-3
-          b-btn.mt-3(type='reset' variant='danger') 打錯重來
-          b-btn.mt-3.ml-3(variant='primary' @click='checkout' :disabled='products.length === 0') 結帳
+          b-btn.mt-3(type='reset' variant='danger') 重置
+          b-btn.mt-3.ml-3(variant='success' @click='checkout' type="submit" :disabled='products.length === 0') 結帳
 </template>
 
 <script>
