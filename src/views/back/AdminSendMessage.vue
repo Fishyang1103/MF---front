@@ -1,17 +1,27 @@
 <template lang="pug">
-#adminorders
-  //- b-card.mt-5(img-top :img-src='this.orders.image')
-  //-   b-card-body
-  //-     b-card-text {{ this.orders.userInfo.remark }}
-  b-row
-      b-col(cols='12' md='6' lg='3' v-for='orders in orders' :key='orders.name')
-        ProductCard(:orders='orders')
+#adminorders.content
+  b-row.mx-0
+    b-col(cols='12' md='6' lg='3' v-for='order in orders' v-if='order.userInfo.image!=="null"' :key='order._id')
+      SendCard(:order='order')
 </template>
+<style>
+#adminorders{
+  background: #FCFCFC;
+}
+#adminorders.content{
+    margin-left:260px;
+  }
+@media screen and (max-width: 992px) {
+  #adminorders.content{
+    margin-left:0px;
+  }
+}
+</style>
 <script>
-import ProductCard from '../../components/ProductCard.vue'
+import SendCard from '../../components/SendCard.vue'
 export default {
   components: {
-    ProductCard
+    SendCard
   },
   data () {
     return {
@@ -31,7 +41,7 @@ export default {
       this.$swal({
         icon: 'error',
         title: '失敗',
-        text: '取得訂單失敗'
+        text: '取得卡片失敗'
       })
     }
   }

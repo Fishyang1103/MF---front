@@ -13,9 +13,9 @@
             h4(style='color:orange;') 訂單管理
         li.mt-5.text-center
           b-btn(pill to='/back/admin/adminsendmessage' variant="outline-warning")
-            h4(style='color:orange;') 傳送訊息
+            h4(style='color:orange;') 小卡製作
     div.text-right
-        b-btn.mr-2.mt-3(v-if="user.isLogin && user.isAdmin" to='/' variant="warning") 首頁
+        b-btn.mr-2.mt-3(to='/' variant="warning") 首頁
 
   router-view
 </template>

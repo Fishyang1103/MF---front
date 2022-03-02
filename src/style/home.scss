@@ -20,6 +20,9 @@
     @include md {
       margin: 30px 20px 0px;
     }
+    @include lg {
+      margin: 40px 0px;
+    }
   }
   .example-3d{
     padding: 10px;

@@ -1,7 +1,7 @@
 <template lang="pug">
 #adminproduct.content
   b-btn.my-3(variant='success' v-b-modal.modal-product) 新增商品
-  b-table(:items="products" :fields='fields' ref='table')
+  b-table(:items="products" :fields='fields' ref='table' stacked="md")
     template(#cell(image)='data')
       img(v-if='data.item.image' :src='data.item.image' style='height: 100px')
     template(#cell(sell)='data')
@@ -94,7 +94,7 @@
 
 <style>
 #adminproduct{
-  background: $backColor;
+  background: #FCFCFC;
 }
 #adminproduct.content{
     margin-left:260px;

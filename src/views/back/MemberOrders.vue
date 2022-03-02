@@ -1,7 +1,7 @@
 <template lang="pug">
 div#orders.contentMt
   b-container
-    b-table(:items="orders" :fields='fields')
+    b-table(:items="orders" :fields='fields' stacked="md")
       template(#cell(date)='data')
         | {{ new Date(data.item.date).toLocaleString('zh-tw') }}
       template(#cell(price)='data')

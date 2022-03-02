@@ -1,6 +1,6 @@
 <template lang="pug">
 #adminorders.content.mt-2
-  b-table(:items="orders" :fields='fields')
+  b-table(:items="orders" :fields='fields' ref='table' stacked="md")
     template(#cell(user)='data')
       | {{ data.item.user.account}}
     template(#cell(name)='data')
@@ -91,6 +91,8 @@ export default {
       return new Intl.NumberFormat('en-IN').format(result)
     },
     async submitModal (event) {
+      console.log(this.aa)
+      console.log(this.form)
       event.preventDefault()
       try {
         await this.api.patch('/orders/' + this.aa, this.form, {
@@ -100,7 +102,6 @@ export default {
         })
         this.orders[this.bb].orderState = this.form.orderState
         this.$refs.table.refresh()
-        this.$refs.table.save()
         this.$bvModal.hide('modal-state')
       } catch (error) {
         console.log(error)
@@ -112,6 +113,7 @@ export default {
       }
     },
     check (id, index) {
+      console.log(this.aa)
       this.aa = id
       this.bb = index
     }

@@ -46,7 +46,8 @@
           b-col.mt-3(lg='6')
             label#label(for= 'timepicker-placeholder') 請選擇時間
             b-time#time(v-model="form.deliveryTime" placeholder="Choose a time" locale="en")
-          b-col.mt-3(cols='12')
+          b-col.mt-3(cols='6')
+            p 🌹傳送圖片或照片
             img-inputer(
             accept="image/*"
             v-model="form.image"
@@ -58,8 +59,11 @@
             :max-size="1024"
             exceed-size-text="檔案大小不能超過"
           )
+          b-col.mt-3(cols='6')
+            p 🌹傳送小卡範本，將隨花附上
+            img(src='~@/assets/image/example.jpg' style="height: 280px;")
           b-col(lg='12')
-            b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='留言給店家' rows='3' max-rows='6')
+            b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='卡片內容' rows='3' max-rows='6')
         b-row.d-flex.justify-content-end.pr-3
           b-btn.mt-3(type='reset' variant='danger') 打錯重來
           b-btn.mt-3.ml-3(variant='primary' @click='checkout' :disabled='products.length === 0') 結帳

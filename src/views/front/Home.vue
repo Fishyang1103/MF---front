@@ -8,22 +8,22 @@
   h2.text-center.wordColor#text 熱銷商品
   b-container
     b-row.d-flex.justify-content-center
-      b-col.d-flex.align-items-center.my-3.justify-content-center(sm='12',md='4')
+      b-col.d-flex.align-items-center.justify-content-center(sm='12',md='4')
         b-card.mb-2.text-center(title='經典紅玫瑰' img-src='~@/assets/image/hotproduct-1.jpg' img-alt='Image' img-top tag='article' style='max-width: 20rem;')
           b-card-text
             h5 $2880
             b-btn.mt-2(to='/eachproduct/620f4c00f9d74e6a046cf9de' block style="border:none;background: #D95D5E;color:white") 觀看更多
-      b-col.d-flex.align-items-center.mb-3.justify-content-center(sm='12',md='4')
+      b-col.d-flex.align-items-center.justify-content-center(sm='12',md='4')
         b-card.mb-2.text-center(title='太陽之花' img-src='~@/assets/image/hotproduct-2.jpg' img-alt='Image' img-top tag='article' style='max-width: 20rem;')
           b-card-text
             h5 $3280
             b-btn.mt-2(to='/eachproduct/620f4da9f9d74e6a046cf9f0' block style="border:none;background: #D95D5E;color:white") 觀看更多
-      b-col.d-flex.align-items-center.mb-5.justify-content-center(sm='12',md='4')
+      b-col.d-flex.align-items-center.justify-content-center(sm='12',md='4')
         b-card.mb-2.text-center(title='純潔的友誼' img-src='~@/assets/image/hotproduct-3.jpg' img-alt='Image' img-top tag='article' style='max-width: 20rem;')
           b-card-text
             h5 $2680
             b-btn.mt-2(to='/eachproduct/6211f9a03b1c002e031f8f9f' block style="border:none;background: #D95D5E;color:white") 觀看更多
-  h2.text-center.wordColor 花語大全
+  h2.text-center.wordColor#text2 花語大全
   div.example-3d
     swiper.swiper(:options='swiperOption')
       swiper-slide.lang-1
