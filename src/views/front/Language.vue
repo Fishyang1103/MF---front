@@ -14,7 +14,7 @@
             b-tab(title='黃玫瑰')
               div.d-flex
                 img(src='~@/assets/image/yellowRose.jpg' style="object-position: right;")
-                p.text-center(style='margin-top:10px;padding:2% 5%;').
+                p(style='margin-top:10px;padding:2% 10%;line-height: 48px;').
                   黃玫瑰象徵著「友誼」，適合送給好友作為祝福；但是如果拿來送戀人的話，卻有「道歉」、「褪去的愛」的意思。小心送禮不要送錯顏色囉！
             b-tab(title='白玫瑰')
               div.d-flex

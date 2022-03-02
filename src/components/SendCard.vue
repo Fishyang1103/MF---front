@@ -1,7 +1,7 @@
 <template lang="pug">
 #sendCard
   p.mt-0 {{ order.userInfo.name}}
-    b-card.mt-2.send(img-top :img-src='order.userInfo.image')
+    b-card.mt-2(img-top :img-src='order.userInfo.image')
       b-card-text(style='white-space: pre') {{ order.userInfo.remark }}
 </template>
 <style>

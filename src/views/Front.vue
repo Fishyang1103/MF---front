@@ -5,8 +5,8 @@
       //- b-btn(v-if="!user.isLogin" to='/signup') 註冊
       b-btn(v-b-modal.modal-1 variant="light" v-if="!user.isLogin")
         b-icon-person-fill.iconColor
-      b-btn.ml-2(v-if="user.isLogin && user.isAdmin" to='/back/admin/adminproducts' variant="warning") 後臺管理
-      b-btn.mr-4(v-if="user.isLogin && !user.isAdmin" to='/back/member/memberorders' variant="warning") 訂單查詢
+      b-btn.ml-2(v-if="user.isLogin && user.isAdmin" to='/back/admin/adminproducts' variant="outline-danger") 後臺管理
+      b-btn.mr-4(v-if="user.isLogin && !user.isAdmin" to='/back/member/memberorders' variant="outline-danger") 訂單查詢
       b-btn(v-if="user.isLogin && !user.isAdmin" to='/back/member/membercart' variant="light")
         font-awesome-icon.iconColor(:icon="['fas', 'fa-cart-plus']")
         b-badge(variant='danger') {{ user.cart }}

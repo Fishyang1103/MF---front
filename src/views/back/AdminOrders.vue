@@ -1,5 +1,5 @@
 <template lang="pug">
-#adminorders.content.mt-2
+#adminorders.content.mt-2.p-5
   b-table(:items="orders" :fields='fields' ref='table' stacked="md")
     template(#cell(user)='data')
       | {{ data.item.user.account}}
@@ -20,13 +20,13 @@
     template(#cell(products)='data')
       ul
         li(v-for='product in data.item.products' :key='product._id') {{ product.product.name }} x {{ product.quantity }}
-    template(#cell(remark)='data')
-      | {{ data.item.userInfo.remark}}
+    //- template(#cell(remark)='data')
+    //-   | {{ data.item.userInfo.remark}}
     template(#cell(price)='data')
       | {{ sumPrice(data.item.products) }}
     template(#cell(orderState)='data')
       //- | {{ data.item.orderState }}
-      b-btn.my-2(@click='check(data.item._id, data.index)' variant='warning' v-b-modal.modal-state ) 編輯訂單狀況
+      b-btn.my-2(@click='check(data.item._id, data.index)' variant='secondary' v-b-modal.modal-state ) 編輯
       //- div.d-flex.mt-2
       //-   p 已完成:
       div(v-if='data.item.orderState === true') 已聯絡及安排出貨
@@ -65,7 +65,7 @@ export default {
         // { key: 'user', label: '使用者' },
         { key: 'date', label: '訂購日' },
         { key: 'products', label: '商品' },
-        { key: 'remark', label: '備註' },
+        // { key: 'remark', label: '備註' },
         { key: 'price', label: '總金額' },
         { key: 'orderState', label: '訂單狀況' }
       ],

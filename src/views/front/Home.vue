@@ -27,17 +27,17 @@
   div.example-3d
     swiper.swiper(:options='swiperOption')
       swiper-slide.lang-1
-        h4(style="position: absolute;right:0px;bottom:-10px;") 玫瑰
+        h2.d-flex.justify-content-center 玫瑰
       swiper-slide.lang-2
-        h4(style="position: absolute;right:0px;bottom:-10px;") 百合
+        h2.d-flex.justify-content-center 百合
       swiper-slide.lang-3
-        h4(style="position: absolute;right:0px;bottom:-10px;") 鬱金香
+        h2.d-flex.justify-content-center 鬱金香
       swiper-slide.lang-4
-        h4(style="position: absolute;right:0px;bottom:-10px;") 菊花
+        h2.d-flex.justify-content-center 菊花
       swiper-slide.lang-5
-        h4(style="position: absolute;right:0px;bottom:-10px;") 桔梗
+        h2.d-flex.justify-content-center 桔梗
       swiper-slide.lang-6
-        h4(style="position: absolute;right:0px;bottom:-10px;") 向日葵
+        h2.d-flex.justify-content-center 向日葵
       .swiper-pagination(slot='pagination')
   h2.text-center.wordColor 花の呵護
   div#hover

@@ -1,5 +1,5 @@
 <template lang="pug">
-#adminorders.content
+#adminorders.content.p-5
   b-row.mx-0
     b-col(cols='12' md='6' lg='3' v-for='order in orders' v-if='order.userInfo.image!=="null"' :key='order._id')
       SendCard(:order='order')

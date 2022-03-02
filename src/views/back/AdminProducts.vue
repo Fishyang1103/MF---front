@@ -1,5 +1,5 @@
 <template lang="pug">
-#adminproduct.content
+#adminproduct.content.p-5
   b-btn.my-3(variant='success' v-b-modal.modal-product) 新增商品
   b-table(:items="products" :fields='fields' ref='table' stacked="md")
     template(#cell(image)='data')

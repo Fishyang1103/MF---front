@@ -1,21 +1,21 @@
 <template lang="pug">
 #top
   #wrapper
-    #sidebar-wrapper(style="overflow: hidden;")
+    #sidebar-wrapper.shadow
       ul.sidebar-nav
-        li.sidebar-brand.h-100(style='margin-left:-20px;')
-          img(src='~@/assets/image/logo.jpg' style="height: 250px;width:250;")
+        li.sidebar-brand.h-100.text-center.mt-5
+          img(src='~@/assets/image/logo.jpg' style="height: 200px;width:200;")
         li.mt-5
-          b-btn(pill to='/back/admin/adminproducts' variant="outline-danger")
-            h4.wordColor 商品管理
+          b-btn.mx-3(pill to='/back/admin/adminproducts' variant="outline-danger")
+            .p-2.wordColor 商品管理
         li.mt-5.text-center
-          b-btn(pill to='/back/admin/adminorders' variant="outline-warning")
-            h4(style='color:orange;') 訂單管理
+          b-btn.mx-3(pill to='/back/admin/adminorders' variant="outline-danger")
+            .p-2.wordColor 訂單管理
         li.mt-5.text-center
-          b-btn(pill to='/back/admin/adminsendmessage' variant="outline-warning")
-            h4(style='color:orange;') 小卡製作
+          b-btn.mx-3(pill to='/back/admin/adminsendmessage' variant="outline-danger")
+            .p-2.wordColor 小卡製作
     div.text-right
-        b-btn.mr-2.mt-3(to='/' variant="warning") 首頁
+        b-btn.mr-2.mt-3(to='/' variant="outline-danger") 首頁
 
   router-view
 </template>
@@ -44,7 +44,7 @@ margin:0;
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #F7EFD8;
+    background: #FFF;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -88,11 +88,11 @@ margin:0;
     color: #999999;
 }
 
-/* .sidebar-nav li a:hover {
+.sidebar-nav li :hover {
     text-decoration: none;
     color: #fff;
-    background: rgba(255,255,255,0.2);
-} */
+    /* background: rgba(255,255,255,0.2); */
+}
 
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
