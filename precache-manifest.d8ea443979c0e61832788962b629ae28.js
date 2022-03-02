@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "css/admin.4a903179.css"
   },
   {
-    "revision": "49c06f78e612b66ebc18",
+    "revision": "54c4cc6379eef5c6894e",
     "url": "css/app.806628e0.css"
   },
   {
@@ -220,7 +220,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/yellowTulip.0f57b334.jpg"
   },
   {
-    "revision": "03c251295ba465ef3d69e7af7df50eb6",
+    "revision": "e48a44c6b4ea1bc7e84daf749dcb4890",
     "url": "index.html"
   },
   {
@@ -244,8 +244,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/admin.f9a0710a.js"
   },
   {
-    "revision": "49c06f78e612b66ebc18",
-    "url": "js/app.305362c0.js"
+    "revision": "54c4cc6379eef5c6894e",
+    "url": "js/app.be5ab7a1.js"
   },
   {
     "revision": "8f3afdf3495a8ca409a0",
@@ -264,8 +264,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/home.fe18bbc9.js"
   },
   {
-    "revision": "11a644d08c1c60babd29",
-    "url": "js/language.dc14f258.js"
+    "revision": "8a81588aa65230166f38",
+    "url": "js/language.09d5fe6e.js"
   },
   {
     "revision": "27caea60313f50a1b977",
