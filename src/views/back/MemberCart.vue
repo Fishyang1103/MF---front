@@ -15,7 +15,7 @@
     p.text-center 總金額 {{ total }}
     div.mt-5
       h4 聯絡資訊
-      b-form(@submit.stop.prevent @reset="onReset" @submit="onSubmit")
+      b-form(@submit.stop.prevent @reset="onReset")
         b-row
           b-col(cols='6')
             label(for='feedback-name') 訂購人姓名
@@ -66,7 +66,7 @@
             b-form-textarea#textarea.mt-3(v-model='form.remark' placeholder='卡片內容' rows='3' max-rows='6')
         b-row.d-flex.justify-content-end.pr-3
           b-btn.mt-3(type='reset' variant='danger') 重置
-          b-btn.mt-3.ml-3(variant='success' @click='checkout' type="submit" :disabled='products.length === 0') 結帳
+          b-btn.mt-3.ml-3(variant='success' @click='checkout' :disabled='products.length === 0') 結帳
 </template>
 
 <script>
